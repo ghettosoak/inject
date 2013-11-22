@@ -1,0 +1,41 @@
+<!doctype html>
+<!--[if lt IE 7]>  <html class="ie ie8 ie7 ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie8 ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE]>       <html class="ie" lang="en"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>in . ject</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../css/master.css" />
+</head>
+
+<body>
+
+    <div id="master" class="whiteblack go read">
+        <div id="left">
+
+            <img src="../../img/syringe_b-w.png" id="syringe"/>
+            <div id="name">
+                <h1>IN.JECT</h1>
+            </div>
+            <div id="title"></div>
+        </div>
+        <div id="right">
+            <div class="content ready">
+
+
+<h1>four?</h1><p>this is number four. yeah!</p>
+
+            </div>
+        </div>
+    </div>
+    <script>
+    	var thehash = window.location.pathname.split('/')
+    	thehash = thehash[thehash.length-1].split('.')[0]
+    	console.log(thehash)
+    	window.location = window.location.origin + '/#!' + thehash;
+    </script>
+
+</body>

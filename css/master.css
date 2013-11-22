@@ -1,0 +1,254 @@
+@import url("//hello.myfonts.net/count/2760f4");
+@import url("//hello.myfonts.net/count/276103");
+@font-face {
+  font-family: 'u39';
+  src: url("../type/u39/276103_0_0.eot");
+  src: url("../type/u39/276103_0_0.eot?#iefix") format("embedded-opentype"), url("../type/u39/276103_0_0.woff") format("woff"), url("../type/u39/276103_0_0.ttf") format("truetype"), url("../type/u39/276103_0_0.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'u47';
+  src: url("../type/u47/2760F4_0_0.eot");
+  src: url("../type/u47/2760F4_0_0.eot?#iefix") format("embedded-opentype"), url("../type/u47/2760F4_0_0.woff") format("woff"), url("../type/u47/2760F4_0_0.ttf") format("truetype"), url("../type/u47/2760F4_0_0.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'u67';
+  src: url("../type/u67/276103_1_0.eot");
+  src: url("../type/u67/276103_1_0.eot?#iefix") format("embedded-opentype"), url("../type/u67/276103_1_0.woff") format("woff"), url("../type/u67/276103_1_0.ttf") format("truetype"), url("../type/u67/276103_1_0.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'liberation';
+  src: url("../type/liberation/LiberationMono-Regular-webfont.eot");
+  src: url("../type/liberation/LiberationMono-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../type/liberation/LiberationMono-Regular-webfont.woff") format("woff"), url("../type/liberation/LiberationMono-Regular-webfont.ttf") format("truetype"), url("../type/liberation/LiberationMono-Regular-webfont.svg#liberation_monoregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+a img {
+  border: none; }
+
+a {
+  border: none; }
+
+::selection {
+  /*background: #;*/ }
+
+::-moz-selection {
+  /*background: #;*/ }
+
+#master {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px; }
+
+#left, #right {
+  height: 100%;
+  position: absolute; }
+
+#left {
+  left: 0px; }
+  #left #syringe, #left #name {
+    position: absolute;
+    z-index: 300; }
+  #left #syringe {
+    width: 126px;
+    height: 126px;
+    margin: -63px 0px 0px -63px;
+    cursor: pointer; }
+  #left #name {
+    width: 126px;
+    height: 126px;
+    margin: -63px 0px 0px -63px;
+    display: table; }
+    #left #name h1 {
+      font-family: u39;
+      font-size: 43px;
+      font-weight: normal;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center; }
+  #left #title {
+    width: 80% !important;
+    margin: auto;
+    position: relative; }
+    #left #title div {
+      width: 100%;
+      position: relative;
+      float: left;
+      cursor: pointer; }
+      #left #title div span, #left #title div h2 {
+        position: relative;
+        float: left; }
+      #left #title div span {
+        font-family: u47;
+        font-size: 12px;
+        width: 20%;
+        margin: 14px 0px; }
+      #left #title div h2 {
+        font-family: u67;
+        font-size: 15px;
+        font-weight: normal;
+        margin: 10px 0px;
+        width: 80%; }
+
+#right {
+  right: 0px;
+  font-family: georgia; }
+  #right .content {
+    position: relative;
+    margin: auto;
+    height: 100%;
+    width: 541px;
+    padding-top: 64px;
+    overflow: scroll;
+    line-height: 1.5em;
+    opacity: 0; }
+    #right .content * {
+      color: white; }
+  #right textarea {
+    display: none;
+    position: relative;
+    opacity: 0;
+    overflow: scroll;
+    font-family: liberation, monospace;
+    font-size: 18px;
+    resize: none;
+    padding: 0px;
+    line-height: 1.5em;
+    border: 0px; }
+    #right textarea:focus {
+      outline: none; }
+  #right #titleedit {
+    height: 79px;
+    width: 201px;
+    margin: 55px 0px;
+    float: left; }
+  #right #postedit {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    padding: 19px 0px 150px 0px;
+    background-color: #00002a;
+    font-size: 15px; }
+
+.edit {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 189px;
+  width: 100%;
+  z-index: 200; }
+
+.wait #syringe, .wait #name {
+  opacity: 0; }
+.wait #title {
+  top: 100% !important;
+  color: white;
+  float: left; }
+
+.go * {
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out; }
+
+.start#title {
+  opacity: 0;
+  height: 0px; }
+
+.start #left, .start #right {
+  width: 50%; }
+.start #left #syringe {
+  top: 50%;
+  left: 50%; }
+.start #left #name {
+  top: 50%;
+  left: 150%;
+  cursor: pointer; }
+  .start #left #name h1 {
+    color: white; }
+.start #left #title {
+  opacity: 0;
+  top: 50%;
+  overflow: hidden; }
+
+.read #left {
+  width: 33.333333%; }
+  .read #left #syringe {
+    top: 95px;
+    left: 25%;
+    margin: -63px 0px 0px -63px !important; }
+  .read #left #name {
+    top: 95px;
+    left: 75%; }
+    .read #left #name h1 {
+      color: #00002a; }
+  .read #left #title {
+    margin-top: 0px !important;
+    top: 189px; }
+.read #right {
+  width: 66.666666%; }
+  .read #right .ready {
+    opacity: 1; }
+
+.whiteblack #left {
+  background-color: white;
+  color: #00002a; }
+.whiteblack #right {
+  background-color: #00002a;
+  color: white; }
+
+.editing .edit {
+  display: block !important; }
+.editing #left #name h1 {
+  color: white !important; }
+.editing #left .edit {
+  background-color: #00002a; }
+.editing #right .content {
+  padding-top: 190px; }
+.editing #right .edit {
+  background-color: white; }
+  .editing #right .edit #trial, .editing #right .edit .control {
+    width: 541px;
+    position: relative;
+    margin: auto;
+    height: 100%; }
+  .editing #right .edit #trial {
+    font-family: u39;
+    font-size: 51px;
+    border: 0px;
+    margin: auto;
+    display: block;
+    outline: 0px !important;
+    padding: 64px 0px; }
+  .editing #right .edit .control {
+    display: none; }
+    .editing #right .edit .control div {
+      width: 65px;
+      position: relative;
+      float: left;
+      margin: 60px 20px 60px 0px;
+      cursor: pointer; }
+      .editing #right .edit .control div img {
+        width: 65px; }
+      .editing #right .edit .control div p {
+        opacity: 0;
+        color: #00002a;
+        text-align: center;
+        font-family: georgia;
+        font-style: italic;
+        font-size: 10px; }
+    .editing #right .edit .control .really p {
+      opacity: 1; }
+
+.nowediting textarea {
+  display: block !important;
+  opacity: 1 !important; }
+
+@-moz-document url-prefix() {}

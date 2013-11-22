@@ -1,0 +1,1 @@
+<p>Hi, my name is Mike, and this is my blog. I make things for the web – including this blog – and this is where I will put my stories.</p>
