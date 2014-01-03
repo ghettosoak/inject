@@ -1,1 +1,5 @@
-<h1>six?</h1><p>what what?</p>
+<h5>12.04.12</h5><h1>On Obfuscation</h1><p>this makes me sad:</p>
+
+<p>Javascript Obfuscator - Stop theft of your JavaScript sources!</p>
+
+<p>of course, there are times when you'd rather your code doesn't get torn off – specifically when you've paid for it. this is precisely why people embed typefaces into CSS documents with URI encoding. dickheads are everywhere, no question. but even that still dodges the core argument of new media thinking: that sharing really is caring. I wouldn't know hardly anything if it weren't for the awesome people out there that willingly show their code. javascript is, by nature, an open source language, and I would argue that anything that is derived from it ought to be open source as well, with proper credit given where proper credit is due. hence, a very large part of this website. a very beautiful installation (the name of which escapes me) had a developers hard drive in the open with a lone USB port preprogrammed to copy as much as the recipient drive could hold upon connection, with the idea of putting everything he had painstakingly programmed in the open.</p>

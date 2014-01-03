@@ -26,19 +26,29 @@ while ($theavailablity = mysql_fetch_array($available, MYSQL_ASSOC)){
     	?>
     	console.log(available);
 
-    	var svg_attr_dark = {'fill':'#00002a', 'stroke':'none'}
+    	var svg_attr_dark = {'fill':'#00002a', 'stroke':'none'};
     </script>
 </head>
 
 <body>
 	<div id="master" class="whiteblack wait">
+	<!-- <div id="master" class="blackwhite wait"> -->
+	<!-- <div id="master" class="whiteblack read go editing nowediting"> -->
 		<div id="left">
 			<div class="edit"></div>
-			<div id="syringe"></div>
+			<div id="syringe">
+				<div class="dark"></div>
+				<div class="light"></div>
+			</div>
 			<div id="name">
 				<h1>IN.JECT</h1>
 			</div>
 			<div id="title"></div>
+		</div>
+		<div id="switch">
+			<div class="target"></div>
+			<div class="left colour"></div>
+			<div class="right colour"></div>
 		</div>
 		<div id="right">
 			<div class="edit">

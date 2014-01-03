@@ -1,0 +1,96 @@
+david desandro is that guy that you desperately want to hate -- but you just cant bring yourself to actually hate him. of course, I have nothing but admiration for him: but the kinds of things he makes are so proufoundly incredible, that you begin to hate yourself for yourself being so limited. he's engineered the dangerously ingenious isotope, which will honestly change the way you think about layouts, and he maintains a blog that is sure to warp your mind with smarts. his site is also beautiful. he's the very definition of a polymath. he is what I want to be in about five years. if I'm lucky, I'll be there in ten, and he'll then be 30 years ahead of the curve. startlingly good stuff.
+
+karl swedberg is one of the principle folk of jquery, the most lovely javascript library ever created. in addition, he maintains the site learning jquery, so that ordinary jackasses like myself have some kind of hope at learning my way around web programming. he also hangs out in the comment sections of the jquery site, where he actively answers questions people have about the usage of jquery. there, he might be kind of a dick sometimes; but if you think about it, it's like if the CEO of ford came to your house to help you figure out whats wrong with your car, and then made you dinner; but not telling you how ugly those curtains are.
+
+zoltan is the mastermind behind an unfortunately-not-so-well known site called user agent man. you're sure to have found it if you've done any serious development, but the kinds of things he deals with are genuinely on another level. his explanations are absolutely spot on, and he has the unfaltering ability to break down insanely complex ideas into digestible bits (seriously, what the fuck is a matrix transformation?). in addition, he's written the incredible CSS sandpaper which, as the name suggests, files off the rough edges in CSS that IE leaves behind, and leaves sexy shiny stuff behind. if you don't know him, get to know him -- he is definitely someone to keep tabs on.
+
+paul irish. my heart is instantly sent aflutter even on the mention of his name. in addition to being cute as a damn button (i'm straight, thanks), he's an unbelievably gifted programmer who has, for some strange reason, dedicated his social existence to creating things that make the web better. he's been integral to: HTML5 boilerplate, which sets new web page creation off on the right foot; w3fools, which dispells valiantly the bullshit that is w3schools; html5please, which is a flawless resource for what HTML5 technologies you can and shouldn't use, and what polyfills you can use; CSS3please, which practically writes complex yet dreamy CSS3 code for you, leaving the fun stuff up to you. and quite a bit more. holy shit. did I mention he's also cute?
+
+chris coyler
+chris is the mastermind behind the esteemed CSS-tricks.com. it is undeniably the best resource for the implementation of the new CSS3, and pushing the old guard beyond its limits to do some really, really cool things. every topic he posts about is exhaustively researched, and deliciously written, for maximum awesomeness, every time. he has also co-founded something called the treehouse, which I suspect is nothing short of the best learning tool to get yourself into new medias and technologies. if he had any part in it, it's guaranteed to be good.
+
+jennifer Kyrnin
+jennifer isn't exactly someone you'd call cutting edge. she doesn't speak at conferences, she doesn't contribute to sweeping progressively-minded projects that are slathered in pretty new markup, and she's not a young buck who makes sexy, sexy screencasts. despite this however, so long as you're filtering the w3schools from your google results, you can't not know who ms. kyrnin is – she's the saucy guru who selflessly contributes to about.com's webdesign / html section; and she knows her stuff. remember that time your grandmother taught you how to tie your shoes? yeah, your grandmother might be a little corny (Staying out of TRouBLe with CSS)– but by damn, you haven't yet forgotten how the rabbit goes around the tree. she's the w3schools that doesn't suck and that isn't the jingoistic Mozilla Developer Network – not to mention that her writings are entirely digestible, and don't assume that you're already a HTML crack: anyone can use them, and I personally always walk away from her stuff a little bit smarter. for spreading good vibes to every level of the internet, Jennifer rocks.
+
+'boltclock'
+boltclock is some damn kid on stack overflow who evidently has no life. he has, at the time of this writing, a rating of 130thousand, and stakes his reputation almost solely on this. he's entirely too easy to brush off as a mutant byproduct of jeff atwood's lovely creation, and I had readily done so until very recently. a click to his profile shows that he's a native to singapore. perhaps he's a child of english-speaking parents who emigrated; but it's also equally probable that he just learned english so well. 'okay,' you say. 'he's good, but annoying. where's the beef?' 
+
+I've got your beef right here. he's autistic.
+
+or so he's been told. or so he posts on his personal blog. given his profound intelligence, and utter fascination with the stack overflow community, I have no reason to doubt this claim – but also no further reason to write him off. a close friend of mine is suspected to be autistic, and he is, undoubtedly, the most talented programmer I have ever had the pleasure of working with. autism comes in literally every shape and form, is often wildly un- and mis-diagnosed. fascination with details is not autism. such is the way of today's medical community, however: sooner to diagnose something to cover one's ass, than to spend a moment to reflect upon the person receiving the diagnosis; and what it might mean for this person in today's over-hygienic world.
+
+at any rate, boltclock is someone to watch. there's a good chance you'll be doing so sooner than later, anyways: as previously mentioned, he's exceedingly bright, and is a polyglot in every sense of the word. and once your done bathing in his intellect, let him serve as a reminder of what autism isn't, and that our community is only as vibrant as we let it be.
+
+Zachary Johnson
+zachstronaut!
+
+Rico Sta Cruz.
+jquery transit
+
+jacob relkin
+you know, I don't even know this kid. his homepage is almost blank, but he writes damn good code, and he's the very embodiment of courtesy in the development world. to lesser men, he's an unpleasant reminder to keep your self abreast of the times to. I'll bet he's just a damn nice person. keep your eyes peeled for this one.
+
+richard bannister
+
+skinkers
+I don't usually make notes on entire companies, but I can't seem to find any one person behind the project I have in mind – and it definitely deserves an ocean of credit. in addition to being a world class design agency, their skunkworks have also churned out a little scrap of code called 'touchswipe'. simply put, it's perfect. in addition to their code being exceptionally human friendly, the plugin itself is so heinously powerful that I myself have used it entirely as a swipe detector and delegate for my agency's recent mobile site – not to mention the single quickest implementation of a plugin EVER when utilized for a carousel-based image gallery for the iPad. skinkers, I plan on buying you much beer.
+
+Peter-Paul Koch, quirks mode
+Mr. Koch is hideous. he is undoubtedly the ugliest programmer on the face of the earth, far surpassing even me. there, I said it. despite this however, he is absolutely dreamy. he's been at this HTML game since before most of the folks of my generation were walking, and it shows. he's the kindly teacher your friends had when you were in the fifth grade, but who starts earth-shattering projects on the side
+
+Jeff Atwood
+Coding Horror, stackoverflow
+
+a lot of people like to refer to themselves as 'web-evangelists', or even 'technology-evangelists', especially when they're at big developer conferences. it looks great on a business card, even better on a lanyard; and when actually spoken, at the very least, it makes all who hear it take pause to try to figure out just what the fuck it means. but what is an evangelist, really? having grown up in a small town that was so proud of its 'most churches per square capita' entry in Guinness's book of world records, I've ran into enough folk who claim to be something of the sort. more than often, it pans out in a comically humiliating fashion – people who have too many words for too few ideas – and the same holds true for folk in the digital world who brand themselves as such: they've read the fact sheets, and have no problem telling people all about it, but seem to lack the in-the-trenches grit that those of us who might have considered using whatever it is these people are professing, are clamoring for. they're little more than unattractive cheerleaders, more often than not; but at least they're not bigoted zealots, like their religious counterparts. most of the time.
+
+Surely, by this point in your descent into programming, you've come across stack overflow. If you've got a question, someone's got an answer – if it hasn't already been asked. And if you've got an answer, then you literally are in business. it unequivocally reigns as the single best programming resource on the internet, not to mention the most well maintained. people have launched careers purely on answering questions, and the idea of a community-curated q&a has blossomed into other, more esoteric fields, such as judaism, area 51, server moderation, and geographic information systems, whatever the hell that is; all of which are actively maintained, and contain individual 'meta' divisions, whereupon the finer points of the site itself can be discussed with the equal acuity. 
+
+wasn't this about jeff atwood? oh, right. yeah, he fucking made stack overflow. 
+
+then, he quit. not before pouring oceans of blood sweat and tears into the project, of course – but he has stepped back to work on other projects, most notable of which is his blog Coding Horror, which offers delectable insights into the world of programming, into the mind of a programmer, and into the grit of programming itself. his writings are intensely layered, but you always walk away feeling refreshed about what you do, and immensely endeared. he is, if nothing else, what an 'evangelist' of any breed should aspire to be, and someone whose gospel I'll gladly get dressed up for. if you can imagine an interesting popular mechanics for programming, combined with chicken soup for the programmer soul, you're somewhere in the right ballpark. 
+
+
+Daniel Sauter
+I may have a man crush on Paul Irish (more on that later), but at the end of the day it's only comical. cute as he may be, he pales in comparison to the level of respect I have for a man named Daniel Sauter. You've probably never heard of him, but he may very well be the most influential person on what I consider to be my practice, ever. to explain this however, requires the slightest bit of backstory. go get a cup of coffee. I'll wait.
+
+I studied graphic design at the University of Illinois at Chicago, beginning in the fall of 2007. I've always considered myself a creative person, perhaps with the visual acuity finding its way a little late. however, I genuinely felt that this was a good fit for me. I still do, but at the time I didn't realize the world into which I was entering. perhaps the experience of grinding one's bones to dust is unique to UIC, but it was something that I certainly did not expect. certain people in the UIC graphic design faculty (the likes of which shall not be named here) made it very clear that I was not liked, and made the entire process one that was eventually exceedingly rewarding, but unnecessarily difficult. I hope that some day I can reflect upon my trials there with warm nostalgia, but the particularly nasty bits stick out severely. this is not to say that the entire experience was bad: people like Jeorg Becker, Oliver Roeger, Jesse McLean, Eric Fleischauer, Marcia Lausen, and Caroline Young were all diligent contributors to the bright spots I sustained at UIC – and thanks to all of them, there were many. but attempting to learn anything – not to mention something subjective, aesthetic and visual – requires not only an ocean of finesse, but an environment that is receptive, without the pungent taint of ego, and at the very least compassionate: all of which were altogether absent in the presence of the aforementioned select few, and unfortunately mostly absent with the named few due to the vast dearth of people in my program.
+
+this all changed with a man named Daniel Sauter. a polymath of world renown, until the very last moment that I saw him (I still owe you a beer, Daniel), he presented himself to me as nothing more than a simple programmer with a slightly warped perspective of the world.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

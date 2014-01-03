@@ -1,26 +1,21 @@
 <script>
 	var $titleedit, $postedit
-	console.log('yeah!')
+	console.log('yeah!');
 	editing = true;
 	hasbeenedited = true;
 	$trial.fadeOut(250,function(){
 		$('.control').fadeIn(250);
-	})
+	});
 
-	$titleedit = $right.find('#titleedit')
-	$postedit = $content.find('#postedit')
+	$titleedit = $right.find('#titleedit');
+	$postedit = $content.find('#postedit');
 
-	$content.removeClass('ready')
+	$content.removeClass('ready');
 
-	// setTimeout(function(){
-	// 	// $content.find('*').not('#titleedit, #postedit').remove()
-	// 	editload()
-	// },500)
-
-	setTimeout(editload, 500)
+	setTimeout(editload, 500);
 
 	function editload(){
-		console.log(lookingat)
+		console.log(lookingat);
 		if (!newpost){
 			$content.find('*').not('#titleedit, #postedit').remove()
 			$('#titleedit, #postedit').empty()
@@ -30,18 +25,18 @@
 					post:lookingat
 				}
 			}).done(function(post){
-				$titleedit.html(post.title)
-				$master.addClass('nowediting')
-			})
+				$titleedit.html(post.title);
+				$master.addClass('nowediting');
+			});
 
 			$.ajax({
 				url:'store/md/'+lookingat+'.md',
 				cache:false,
 				type:'get'
 			}).done(function(post){
-				$postedit.html(post)
-				$content.addClass('ready')
-			})
+				$postedit.html(post);
+				$content.addClass('ready');
+			});
 		}
 	}
 
@@ -62,16 +57,16 @@
 						'<span>'+date+'</span>'+
 						'<h2>'+$titleedit.val()+'</h2>'+
 					'</div>'
-				)
+				);
 			}
-		})
-	})
+		});
+	});
 
 	$('#new').on('click', function(){
-		$titleedit.html('')
-		$postedit.html('')
-		available.push(lastpostis+1)
-		window.location.hash = '!'+(lastpostis+1)
+		$titleedit.html('');
+		$postedit.html('');
+		available.push(lastpostis+1);
+		window.location.hash = '!'+(lastpostis+1);
 		newpost = true;
 	})
 
@@ -85,39 +80,21 @@
 					post:lookingat
 				}
 			}).done(function(){
-				$titleedit.html('')
-				$postedit.html('')
-				$title.find('div[data-post="'+lookingat+'"]').remove()
+				$titleedit.html('');
+				$postedit.html('');
+				$title.find('div[data-post="'+lookingat+'"]').remove();
 				window.location.hash = '';
-				$(this).removeClass('really')
-			})
+				$(this).removeClass('really');
+			});
 		}
-	})
+	});
 
 	$('#return').on('click', function(){
-		$titleedit.html('')
-		$postedit.html('')
-		$master.removeClass('editing nowediting')
-		r_syringe.attr(svg_attr_dark)
-		postload(lookingat)
+		$titleedit.html('');
+		$postedit.html('');
+		$master.removeClass('editing nowediting');
+		postload(lookingat);
 		editing = false;
-	})
+	});
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

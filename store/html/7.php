@@ -1,0 +1,13 @@
+<h5>14.05.12</h5><h1>Photoshop v. Illustrator: The great debate pt1</h1><p>or, why I don't use photoshop</p>
+
+<p>it used to be that, when I would make a webpage, I had the design solely in my head, and I would program it from there. it turns out that putting pen to paper allows ideas to be tweaked and fashioned considerably, and usability and interactivity flaws can be resolved quite a bit easier. I guess in this case, it would be mouse to screen – but in preventing it being fist to screen, I do all my planning in illustrator.</p>
+
+<p>'illustrator,' I can hear you screaming at your computer over your iced latte. 'doesn't he know that only the best web designers use PHOTOSHOP?!!?!LOL!!?!?!?!1!!' and its not hard to see why, you goddamn fairy: it has a much more streamlined rendering engine, so cool little effects like drop shadows and noise can be rendered straight to pixels instead of purely mathematically (remember – illustrator is almost exclusively a vector-based program). there's a reason sites like PSDtoHTML.com exist, despite how much outright pollution they produce: because designers, for whatever reason, like photoshop.</p>
+
+<p>I don't.</p>
+
+<p>let's think about this for a minute. specifically, let's think about pixels versus how a printer works. a pixel is, for the sake of argument, a tiny square that can reproduce just about every color we can think of; and when put together in array with other pixels, we can make pictures and text and other things we know from the real world. but it's still square. if we now turn to how printers work, of course, there is a certain limitation of how dense a given printer can put its dots together. but if we're starting in a pixel base, we're already starting off on the foot of overkill, in making sure that we have more pixels than the printer has dots. doesn't seem very efficient, does it?</p>
+
+<p>this is why illustrator, and other vector based programs, are such a breath of fresh air. when a printer goes to lay its dots down, starting with mathematical calculations to describe shapes and text and colors not only takes up a hell of a lot less space than layers upon layers of data for each and every pixel, but is infinitely scalable. you're automatically starting with what ends up being infinite resolution, even if the printer converts down to a pixel based image before printing.</p>
+
+<p>I'm not saying for a moment that photoshop is bad. given that digital cameras capture in what amounts to pixels, it is the finest platform in all the land for photo editing and manipulation. period. and in this digital age, it's the bleeding edge of dealing with vast quantities of pixels.</p>

@@ -1,6 +1,13 @@
 <?php
-$a = include('../inc/show_a.html');
-$b = file_get_contents('../inc/show_b.html');
 
-echo $a;
+include('help/delicious_unjson.php');
+
+$date = mysql_query('select date from post where id = 7');
+
+$date = mysql_fetch_array($date, MYSQL_BOTH);
+
+$date = $date['date'];
+
+echo $date;
+
 ?>

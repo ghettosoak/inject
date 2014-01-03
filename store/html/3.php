@@ -1,1 +1,3 @@
-<h1>three</h1><p>this is number three. yeah!</p>
+<h5>03.03.12</h5><h1>Pitfalls of Web Design</h1><p>three years ago, right on the cusp of an absolutely awful breakup, I found myself at university with a free credit: my tuition had been 'paid for' by my bank, and I could either take a course of my liking, or not get my money back. I instead opted for choice C – to teach myself HTML. I was studying graphic design at the time, and I knew my university offered a course somewhere that attempted to link programming with design, but I also knew that the security of my career would become greatly emboldened with every tidbit of knowledge I could gather. of course, my dad would have none of this: according to him, aich-tee-ehm-ell was something that middle schoolers learned when they weren't preoccupied with halo or drinking mouthwash or whatever it is middleschoolers do.</p>
+
+<p>so instead, I took a philosophy course, and taught myself web programming anyways.</p>

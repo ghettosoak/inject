@@ -1,0 +1,115 @@
+<h5>19.10.12</h5><h1>On Condensation</h1><p>I'd like to take you through a brief history of my understanding of programming. it's kind of short, but I've learned a whole shit ton along the way, and I'm only just getting started.</p>
+
+<p>not too long ago, I made something for a client that had a bunch of points that would be clicked on by the user, bringing up an overlay in the document. knowing oh so little about programming, I did it like this:</p>
+
+<pre><code>$(".selectorP01, .selectorP012").click(function(){
+    $(".overlay_backdrop").css('display','block').animate({'opacity':1},800);
+    $(".ol01").css('display','block').animate({'opacity':1},800);
+});
+
+$(".ol_c01").click(function(){
+    $(".ol01_vid01").get(0).pause();
+    $(".overlay_backdrop").animate({'opacity':0},800).queue(function(){$(".overlay_backdrop").css('display','none').dequeue()});
+    $(".ol01").animate({'opacity':0},800).queue(function(){$(".ol01").css('display','none').dequeue()});
+});
+
+$(".selectorP02").click(function(){
+    $(".overlay_backdrop").css('display','block').animate({'opacity':1},800);
+    $(".ol02").css('display','block').animate({'opacity':1},800);
+});
+
+$(".ol_c02").click(function(){
+    $(".ol02_vid01").get(0).pause();
+    $(".ol02_vid02").get(0).pause();
+    $(".overlay_backdrop").animate({'opacity':0},800).queue(function(){$(".overlay_backdrop").css('display','none').dequeue()});
+    $(".ol02").animate({'opacity':0},800).queue(function(){$(".ol02").css('display','none').dequeue()});
+});
+</code></pre>
+
+<p>that's just for two points. there are ten in all. yeah. not the prettiest looking bit of code, and a tremendous pain in the ass to maintain. want to change a behavior in all of the events? have fun picking through many lines of garbage. which is why I was almost ecstatic when I realized that I could do this:</p>
+
+<pre><code>function contentopen(gothere){
+    if (!mobilepliers)$(".overlay_backdrop, .ol"+gothere).fadeIn();
+    else{
+        if ($('.selectorP'+gothere).hasClass('touched')){
+            $(".overlay_backdrop, .ol"+gothere).fadeIn(800, function(){
+                $('.selectorP').removeClass('touched');
+                $('.selector').css({'background-color':'#BEE432','border':'1px transparent solid'});
+                $('.selector_tooltip').css('display','none');
+            });
+        }
+        $('.selectorP'+gothere).addClass('touched');
+    }
+}
+
+$(".selectorP01, .selectorP012").click(function(){contentopen('01')});
+$(".selectorP02").click(function(){contentopen('02')});
+$(".selectorP03").click(function(){contentopen('03')});
+$(".selectorP04").click(function(){contentopen('04')});
+$(".selectorP05").click(function(){contentopen('05')});
+$(".selectorP06").click(function(){contentopen('06')});
+$(".selectorP07").click(function(){contentopen('07')});
+$(".selectorP08").click(function(){contentopen('08')});
+$(".selectorP09").click(function(){contentopen('09')});
+$(".selectorP10").click(function(){contentopen('10')});
+</code></pre>
+
+<p>now, every item that needs clicking is listened to, and instantiates a little, easy to maintain function that does precisely what it did before, but in far fewer lines of code. awesome!</p>
+
+<p>but this is only ten items. what if we had one hundred? that's an awful lot of redundant code to accomplish something. what if we could condense it even further?</p>
+
+<p>ever since I started working with david desandro's incredible isotope, I've been using the data- attribute in my html more and more. when I first laid eyes on it, I thought that it was kind of silly: including noise for the sake of linearity? how about you just make it more linear programmatically?</p>
+
+<p>oh, how foolish I was.</p>
+
+<p>all of the selectors in the click events above are the same thing, just with different class names. so, what would happen if we gave them all the same class, but let them be different in the eyes of javascript in another way?</p>
+
+<p>enter the data attribute.</p>
+
+<pre><code>&lt;div class="selector_press selectorP01" data-pointer="01"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP012" data-pointer="012"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP02" data-pointer="02"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP03" data-pointer="03"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP04" data-pointer="04"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP05" data-pointer="05"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP06" data-pointer="06"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP07" data-pointer="07"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP08" data-pointer="08"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP09" data-pointer="09"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div class="selector_press selectorP10" data-pointer="10"&gt;&amp;nbsp;&lt;/div&gt;
+</code></pre>
+
+<p>it's a little bit of extra work, but if we look at it closely, we see that they're all of the same class, 'selector_press', we've let them all maintain their respective places with css with the 'selectorP0-whatever', but now we have something unique to pass to javascript, so that the code looks like this:</p>
+
+<pre><code>$(".selector_press").click(function(){
+        contentopen($(this).attr('data-pointer'));
+});
+</code></pre>
+
+<p>and suddenly, there were three lines. this can also be achieved with the .dataset parameter in javascript, but it doesn't play nice with internet explorer – so jquery it is!</p>
+
+<p>UPDATE: jquery indeed: what if we went a step further? bring it on. throw everything into a container:</p>
+
+<pre><code>&lt;div class="selectors"&gt;
+    &lt;div class="selector_press" data-pointer="01"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="012"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="02"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="03"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="04"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="05"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="06"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="07"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="08"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="09"&gt;&amp;nbsp;&lt;/div&gt;
+    &lt;div class="selector_press" data-pointer="10"&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>and we can suddenly use jquery .on(), which is unfathomably faster to load than .click(). javascript picks up all mouse events anyways, so why have two listeners? it waits for the click to happen instead of perpetually listening for it, freeing up loads of memory. check it:</p>
+
+<pre><code>$(".selector_press").on('click', 'div', function(){
+        contentopen($(this).data('pointer'));
+});
+</code></pre>
+
+<p>and that's how it's done, bitches.</p>

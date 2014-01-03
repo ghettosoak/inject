@@ -8,8 +8,6 @@ $post = $_REQUEST['post'];
 $title = $_REQUEST['title'];
 $body = $_REQUEST['body'];
 
-// if (!$isnew) echo 'yeah!';
-
 if ($isnew == 'true'){
 	$today = getdate();
 	$day;
@@ -28,16 +26,22 @@ if ($isnew == 'true'){
 
 	mysql_query('insert into post set date = "'.$thedate.'", title = "'.$title.'"');
 	echo $thedate;
-}else mysql_query('update post set title = "'.$title.'" where id ='.$post);
+}else{
+	mysql_query('update post set title = "'.$title.'" where id ='.$post);
+
+	$thedate = mysql_query('select date from post where id = ' . $post);
+	$thedate = mysql_fetch_array($thedate, MYSQL_BOTH);
+	$thedate = $thedate['date'];
+}
 
 $a = file_get_contents('../inc/show_a.html');
 $b = file_get_contents('../inc/show_b.html');
-
-// $return['body'] = file_get_contents('../store/md/'.$post.'.md');
+$c = file_get_contents('../inc/show_c.html');
 
 file_put_contents('../store/md/'.$post.'.md', $body);
-file_put_contents('../store/html/'.$post.'.php', '<h1>'.$title.'</h1>'.Markdown($body));
-file_put_contents('../store/look/'.$post.'.html', $a.'<h1>'.$title.'</h1>'.Markdown($body).$b);
+file_put_contents('../store/html/'.$post.'.php', '<h5>'. $thedate .'</h5><h1>'.$title.'</h1>'.Markdown($body));
+file_put_contents('../store/look/'.$post.'.html', $a . '<title>in / ject // ' . $title . '</title>' . $b . '<h5>'. $thedate .'</h5><h1>'.$title.'</h1>'.Markdown($body).$c);
 
+echo $thedate;
 
 ?>

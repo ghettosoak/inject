@@ -27,6 +27,8 @@ while ($thistitle = mysql_fetch_assoc($titles)){
     $nav['posts'][] = array('id' => $thistitle['id'], 'date' => $thistitle['date'], 'title' => $thistitle['title']);
 }
 
-echo jsonReadable(json_encode($nav));
+// echo jsonReadable(
+	echo json_encode($nav);
+	// );
 
 ?>

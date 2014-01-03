@@ -33,6 +33,11 @@ a img {
 a {
   border: none; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: u47;
+  font-weight: normal;
+  line-height: 1em; }
+
 ::selection {
   /*background: #;*/ }
 
@@ -60,6 +65,16 @@ a {
     height: 126px;
     margin: -63px 0px 0px -63px;
     cursor: pointer; }
+    #left #syringe div {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: center center; }
+    #left #syringe .dark {
+      background-image: url(../img/syringe_dark.svg); }
+    #left #syringe .light {
+      background-image: url(../img/syringe_light.svg); }
   #left #name {
     width: 126px;
     height: 126px;
@@ -73,9 +88,10 @@ a {
       vertical-align: middle;
       text-align: center; }
   #left #title {
-    width: 80% !important;
-    margin: auto;
-    position: relative; }
+    width: 100%;
+    padding: 0px 10%;
+    position: relative;
+    overflow: scroll; }
     #left #title div {
       width: 100%;
       position: relative;
@@ -88,13 +104,41 @@ a {
         font-family: u47;
         font-size: 12px;
         width: 20%;
-        margin: 14px 0px; }
+        margin: 12.5px 0px; }
       #left #title div h2 {
         font-family: u67;
         font-size: 15px;
         font-weight: normal;
         margin: 10px 0px;
         width: 80%; }
+    #left #title:before, #left #title:after {
+      display: none; }
+
+#switch {
+  height: 5px;
+  width: 10px;
+  position: absolute;
+  bottom: 0px;
+  margin-left: -5px;
+  z-index: 1000; }
+  #switch .target {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    margin-left: -25px;
+    cursor: pointer;
+    z-index: 1000; }
+  #switch .colour {
+    height: 5px;
+    width: 5px;
+    position: absolute;
+    top: 0px; }
+  #switch .left {
+    left: 0px; }
+  #switch .right {
+    right: 0px; }
 
 #right {
   right: 0px;
@@ -103,13 +147,15 @@ a {
     position: relative;
     margin: auto;
     height: 100%;
-    width: 541px;
-    padding-top: 64px;
+    padding: 63px 15% 0px;
     overflow: scroll;
     line-height: 1.5em;
     opacity: 0; }
-    #right .content * {
-      color: white; }
+    #right .content h1:first-of-type {
+      padding-bottom: 10px; }
+    #right .content h5:first-of-type {
+      float: right;
+      margin: 36px 0px 0px; }
   #right textarea {
     display: none;
     position: relative;
@@ -149,14 +195,17 @@ a {
   opacity: 0; }
 .wait #title {
   top: 100% !important;
-  color: white;
   float: left; }
 
-.go * {
+.go *, .go *:before, .go *:after {
   -webkit-transition: all .5s ease-in-out;
   -moz-transition: all .5s ease-in-out;
   -o-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out; }
+  transition: all .5s ease-in-out;
+  -webkit-transition-delay: 0s !important;
+  -moz-transition-delay: 0s !important;
+  -o-transition-delay: 0s !important;
+  transition-delay: 0s !important; }
 
 .start#title {
   opacity: 0;
@@ -171,12 +220,16 @@ a {
   top: 50%;
   left: 150%;
   cursor: pointer; }
-  .start #left #name h1 {
-    color: white; }
 .start #left #title {
   opacity: 0;
-  top: 50%;
-  overflow: hidden; }
+  top: 50%; }
+.start #left.open #syringe {
+  top: 95px; }
+.start #left.open #title {
+  top: 189px;
+  opacity: 1; }
+.start #switch {
+  left: 50%; }
 
 .read #left {
   width: 33.333333%; }
@@ -187,11 +240,11 @@ a {
   .read #left #name {
     top: 95px;
     left: 75%; }
-    .read #left #name h1 {
-      color: #00002a; }
   .read #left #title {
     margin-top: 0px !important;
     top: 189px; }
+.read #switch {
+  left: 33.333333%; }
 .read #right {
   width: 66.666666%; }
   .read #right .ready {
@@ -200,55 +253,256 @@ a {
 .whiteblack #left {
   background-color: white;
   color: #00002a; }
+  .whiteblack #left #syringe .dark {
+    opacity: 1; }
+  .whiteblack #left #syringe .light {
+    opacity: 0; }
+  .whiteblack #left #title:before {
+    opacity: 1; }
+  .whiteblack #left #title:after {
+    opacity: 0; }
+  .whiteblack #left ::selection {
+    background-color: #000050;
+    color: white; }
+  .whiteblack #left ::-moz-selection {
+    background-color: #000050;
+    color: white; }
+.whiteblack #switch .left {
+  background-color: #00002a; }
+.whiteblack #switch .right {
+  background-color: white; }
 .whiteblack #right {
   background-color: #00002a;
   color: white; }
+  .whiteblack #right * {
+    color: white; }
+  .whiteblack #right h1:first-of-type {
+    border-bottom: 1px white solid; }
+  .whiteblack #right ::selection {
+    background-color: white;
+    color: #00002a; }
+  .whiteblack #right ::-moz-selection {
+    background-color: white;
+    color: #00002a; }
+.whiteblack.wait #title {
+  color: white; }
+.whiteblack.start #left #name h1 {
+  color: white; }
+.whiteblack.read #left #name h1 {
+  color: #00002a; }
+.whiteblack.editing #left #name h1 {
+  color: white !important; }
+.whiteblack.editing #left .edit {
+  background-color: #00002a; }
+.whiteblack.editing #left #syringe .dark {
+  opacity: 0; }
+.whiteblack.editing #left #syringe .light {
+  opacity: 1; }
+.whiteblack.editing #right .edit {
+  background-color: white; }
+  .whiteblack.editing #right .edit #trial, .whiteblack.editing #right .edit #titleedit {
+    color: #00002a; }
+  .whiteblack.editing #right .edit .control p {
+    color: #00002a; }
+
+.blackwhite #left {
+  background-color: #00002a;
+  color: white; }
+  .blackwhite #left #syringe .dark {
+    opacity: 0; }
+  .blackwhite #left #syringe .light {
+    opacity: 1; }
+  .blackwhite #left #title:before {
+    opacity: 0; }
+  .blackwhite #left #title:after {
+    opacity: 1; }
+  .blackwhite #left ::selection {
+    background-color: white;
+    color: #00002a; }
+  .blackwhite #left ::-moz-selection {
+    background-color: white;
+    color: #00002a; }
+.blackwhite #switch .left {
+  background-color: white; }
+.blackwhite #switch .right {
+  background-color: #00002a; }
+.blackwhite #right {
+  background-color: white;
+  color: #00002a; }
+  .blackwhite #right * {
+    color: #00002a; }
+  .blackwhite #right h1:first-of-type {
+    border-bottom: 1px #00002a solid; }
+  .blackwhite #right ::selection {
+    background-color: #000050;
+    color: white; }
+  .blackwhite #right ::-moz-selection {
+    background-color: #000050;
+    color: white; }
+.blackwhite.wait #title {
+  color: #00002a; }
+.blackwhite.start #left #name h1 {
+  color: #00002a; }
+.blackwhite.read #left #name h1 {
+  color: white; }
+.blackwhite.editing #left #name h1 {
+  color: #00002a !important; }
+.blackwhite.editing #left .edit {
+  background-color: white; }
+.blackwhite.editing #left #syringe .dark {
+  opacity: 1; }
+.blackwhite.editing #left #syringe .light {
+  opacity: 0; }
+.blackwhite.editing #right .edit {
+  background-color: #00002a; }
+  .blackwhite.editing #right .edit #trial, .blackwhite.editing #right .edit #titleedit {
+    color: white; }
+  .blackwhite.editing #right .edit .control p {
+    color: white; }
 
 .editing .edit {
   display: block !important; }
-.editing #left #name h1 {
-  color: white !important; }
-.editing #left .edit {
-  background-color: #00002a; }
 .editing #right .content {
   padding-top: 190px; }
-.editing #right .edit {
-  background-color: white; }
-  .editing #right .edit #trial, .editing #right .edit .control {
-    width: 541px;
+.editing #right .edit #trial, .editing #right .edit .control {
+  width: 541px;
+  position: relative;
+  margin: auto;
+  height: 100%; }
+.editing #right .edit #trial {
+  font-family: u39;
+  font-size: 51px;
+  border: 0px;
+  margin: auto;
+  display: block;
+  outline: 0px !important;
+  padding: 64px 0px; }
+.editing #right .edit .control {
+  display: none; }
+  .editing #right .edit .control div {
+    width: 65px;
+    height: 65px;
     position: relative;
-    margin: auto;
-    height: 100%; }
-  .editing #right .edit #trial {
-    font-family: u39;
-    font-size: 51px;
-    border: 0px;
-    margin: auto;
-    display: block;
-    outline: 0px !important;
-    padding: 64px 0px; }
-  .editing #right .edit .control {
-    display: none; }
-    .editing #right .edit .control div {
-      width: 65px;
-      position: relative;
-      float: left;
-      margin: 60px 20px 60px 0px;
-      cursor: pointer; }
-      .editing #right .edit .control div img {
-        width: 65px; }
-      .editing #right .edit .control div p {
-        opacity: 0;
-        color: #00002a;
-        text-align: center;
-        font-family: georgia;
-        font-style: italic;
-        font-size: 10px; }
-    .editing #right .edit .control .really p {
-      opacity: 1; }
+    float: left;
+    margin: 60px 20px 60px 0px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center center; }
+    .editing #right .edit .control div img {
+      width: 65px; }
+    .editing #right .edit .control div p {
+      opacity: 0;
+      text-align: center;
+      font-family: georgia;
+      font-style: italic;
+      font-size: 10px; }
+  .editing #right .edit .control #save {
+    background-image: url(../img/save.svg); }
+  .editing #right .edit .control #new {
+    background-image: url(../img/new.svg); }
+  .editing #right .edit .control #delete {
+    background-image: url(../img/delete.svg); }
+  .editing #right .edit .control #return {
+    background-image: url(../img/return.svg); }
+  .editing #right .edit .control .really p {
+    opacity: 1; }
 
 .nowediting textarea {
   display: block !important;
   opacity: 1 !important; }
 
+@media only screen and (max-width: 880px) {
+  #left #title div span {
+    width: 30%; }
+  #left #title div h2 {
+    width: 70%; }
+
+  #right .content {
+    padding: 63px 20px 0px; } }
+@media only screen and (max-width: 480px) {
+  #left, #right {
+    width: 100% !important; }
+
+  #switch {
+    left: initial !important;
+    right: 0px;
+    bottom: initial;
+    width: 5px;
+    height: 10px;
+    margin: -5px 0px 0px; }
+    #switch .target {
+      top: 50%;
+      left: initial;
+      right: 0px;
+      margin: -25px 0px 0px; }
+    #switch .colour {
+      left: 0px; }
+    #switch .left {
+      top: 0px; }
+    #switch .right {
+      top: 5px; }
+
+  .start #left, .start #right {
+    height: 50%; }
+  .start #left #name {
+    top: 150%;
+    left: 50%; }
+  .start #switch {
+    top: 50%; }
+  .start #right {
+    top: 50%; }
+
+  .read #left {
+    height: 300px; }
+    .read #left #syringe, .read #left #name {
+      width: 80px !important;
+      height: 80px !important;
+      left: 50% !important;
+      margin: 0px 0px 0px -40px !important; }
+    .read #left #syringe {
+      top: 20px; }
+    .read #left #name {
+      top: 125px; }
+    .read #left #title {
+      top: 215px !important;
+      padding-top: 70px; }
+      .read #left #title:before, .read #left #title:after {
+        display: block;
+        content: '';
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        margin-left: -30px;
+        background-size: 80px 80px;
+        background-position: center center; }
+      .read #left #title:before {
+        background-image: url(../img/menu_dark.svg);
+        background-color: white; }
+      .read #left #title:after {
+        background-image: url(../img/menu_light.svg);
+        background-color: #00002a; }
+      .read #left #title div {
+        display: none;
+        height: 42px; }
+      .read #left #title.open {
+        width: 80% !important;
+        height: initial !important;
+        left: 10% !important;
+        margin: 0px !important; }
+        .read #left #title.open div {
+          display: block; }
+        .read #left #title.open:before {
+          opacity: 0; }
+        .read #left #title.open:after {
+          opacity: 1; }
+  .read #switch {
+    top: 300px; }
+  .read #right {
+    height: initial;
+    top: 300px; }
+    .read #right .content {
+      padding: 15px 20px;
+      min-height: 500px; } }
 @-moz-document url-prefix() {}
