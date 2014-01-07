@@ -1,4 +1,4 @@
-<h5>27.03.12</h5><h1>Learning German</h1><p>learning a foreign language is, surprisingly enough, as difficult as learning another language – or, don't let yourself get caught up in small victories</p>
+<div><h5>27.03.12</h5><h1>Learning German</h1></div><p>learning a foreign language is, surprisingly enough, as difficult as learning another language – or, don't let yourself get caught up in small victories</p>
 
 <p>the saying goes, 'its all greek to me', at least when your talking about something so complicated that it borders on unintelligible. it's hard not to see where this originated from: I've taken more coherent shits than the greek alphabet, and most greeks I know are assholes anyways. (related? hardly. relevant? always) but despite my irrational hatred for greece, learning another language is downright tough. there's a reason people major in it at university, it's its own discipline of study altogether.</p>
 

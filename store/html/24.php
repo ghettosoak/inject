@@ -1,4 +1,4 @@
-<h5>04.07.13</h5><h1>Number one</h1><p>Well, look at this. My very own blog. I wish this was the first one, but I fear I've lost count. And yet, here I am once again.</p>
+<div><h5>04.07.13</h5><h1>Number one</h1></div><p>Well, look at this. My very own blog. I wish this was the first one, but I fear I've lost count. And yet, here I am once again.</p>
 
 <p>However! This time, things are a little different: you see, dear reader, this blog is of my own creation. While it might not look like much – and I'll get to that in a moment – the entire interface (as well as a handy-dandy little backend) has been handcrafted by yours truly, almost in its entirety. I'm using Michel Fortin's exceptional PHP Markdown plugin for the editor so that I can do all kinds of fancy styling while still returning (hopefully) valid HTML; and Jason Stoudt's Enscroll to remove those ugly scrollbars from your browser window, while still allowing you to navigate about.</p>
 

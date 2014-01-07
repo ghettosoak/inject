@@ -1,1 +1,1 @@
-<h5>16.10.12</h5><h1>Line-Height bug in ie7</h1><p>beware of setting line height ubiquitously! should something extraneous exceed this height, particularly h1 elements, IE7 will simply chop off the excess from both top and bottom.</p>
+<div><h5>16.10.12</h5><h1>Line-Height bug in ie7</h1></div><p>beware of setting line height ubiquitously! should something extraneous exceed this height, particularly h1 elements, IE7 will simply chop off the excess from both top and bottom.</p>

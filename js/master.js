@@ -4,12 +4,12 @@
 //jquery v1.8.0 is included in this mess. Copyright 2012 jQuery Foundation and other contributors.
 //like something you see, but can't read this unholy mess? drop me a line at (mif)[at](awe)[minus](schaffhausen)[dot](com)
 
-var $windowpane = $(window)
+var $windowpane = $(window);
 var wpheight, wpwidth;
 var $master;
 var $left, $right;
 var $syringe, $name;
-var $title, titleheight, titlequick, titlelarge;
+var $title, titleheight = 0, titlequick, titlelarge;
 var $content;
 var reading = false, editing = false, hasbeenedited = false, newpost = false;
 var lastpostis, titlequicker = false;
@@ -20,11 +20,8 @@ var trialcount = 0;
 var thePosts = {};
 var lookingat;
 var mobileis = false;
-// var r_syringe;
-// var svg_attr_white = {'fill':'#fff', 'stroke':'none'};
 
 $(document).ready(function(){
-	// svg_activate();
 	wpheight = $windowpane.height();
 	wpwidth = $windowpane.width();
 
@@ -49,7 +46,16 @@ $(document).ready(function(){
 	}else{
 		reading = true;
 		$master.addClass('read');
-	}	
+	}
+
+	console.log(document.cookie);
+
+	if (document.cookie === 'blackwhite'){
+		$master.removeClass('whiteblack')
+		.addClass('blackwhite');
+	}else{
+		document.cookie = 'whiteblack';
+	}
 });
 
 $windowpane.load(function(){
@@ -64,10 +70,7 @@ $windowpane.load(function(){
 
 	navload();
 
-	if (wpwidth > 480){
-		// $content.enscroll();
-		// $title.enscroll();
-	}else mobileis = true;
+	if (wpwidth <= 480) mobileis = true;
 });
 
 $windowpane.hashchange(function(){
@@ -83,7 +86,7 @@ $windowpane.hashchange(function(){
 
 function navload(){
 	$.ajax({
-		url:'php/nav.php',
+		url:'php/nav.php'
 	}).done(function(theNav){
 		console.log(theNav);
 		thePosts = theNav;
@@ -98,12 +101,15 @@ function navload(){
 			if ((key) == theNav.postcount-1){
 				if (mobileis) mobileEnsure();
 				else{
-					titleheight = $title.height();
-					$title.css({ 'height' : wpheight-189 });
+					$title.find('div').each(function(){
+						titleheight += $(this).height();
+					});
 				}
 
 				if (!reading) start_titleensure();
 				else postpointer();
+
+				if (reading && !mobileis) $title.css('height', (wpheight-189));
 			}
 		});
 		lastpostis = parseInt(theNav.lastpost);
@@ -114,8 +120,15 @@ function navload(){
 	});
 
 	$theSwitcher.find('.target').on('click', function(){
-		if ($master.hasClass('whiteblack')) $master.removeClass('whiteblack').addClass('blackwhite');
-		else if ($master.hasClass('blackwhite')) $master.removeClass('blackwhite').addClass('whiteblack');
+		if ($master.hasClass('whiteblack')){
+			$master.removeClass('whiteblack').addClass('blackwhite');
+			document.cookie = 'blackwhite';
+		}else if ($master.hasClass('blackwhite')){
+			$master.removeClass('blackwhite').addClass('whiteblack');
+			document.cookie = 'whiteblack';
+		}
+		console.log(document.cookie);
+		console.log('yeah!');
 	})
 }
 
@@ -123,20 +136,24 @@ function start_titleensure(){
 	$master.removeClass('wait').addClass('go');
 
 	$syringe.on('click', function(){
-		$left.toggleClass('open');
-		if ($left.hasClass('open')){
-			if (!mobileis) $title.css({ 'height': (wpheight - 190) });
-			else{
-				$right.css({ 'top' : titleheight+189 });
-				$name.css({ 'top' : (titleheight+189) + (wpheight/4) });
-				$theSwitcher.css({ 'top' : (titleheight+189) });
-			}
-		}else{
-			if (!mobileis) $title.css({ 'height' : 0 });
-			else{
-				$right.css({ 'top' : '50%' });
-				$name.css({ 'top' : '150%' });
-				$theSwitcher.css({ 'top' : '50%' });
+		if (!reading){
+			$left.toggleClass('open');
+			if ($left.hasClass('open')){
+				if (!mobileis) $title.css({ 'height': (wpheight - 190) });
+				else{
+					$title.css('height', titleheight);
+					$right.css({ 'top' : titleheight+189 });
+					$name.css({ 'top' : (titleheight+189) + (wpheight/4) });
+					$theSwitcher.css({ 'top' : (titleheight+189) });
+				}
+			}else{
+				if (!mobileis) $title.css({ 'height' : 0 });
+				else{
+					$title.css('height', 0);
+					$right.css({ 'top' : '50%' });
+					$name.css({ 'top' : '150%' });
+					$theSwitcher.css({ 'top' : '50%' });
+				}
 			}
 		}
 	});
@@ -154,18 +171,23 @@ function mobileEnsure(){
 
 	$title.on('click', function(){
 		var $that = $(this);
-		$that.toggleClass('open');
+		$that.toggleClass('open')
 		if ($that.hasClass('open')){
 			$left.css('height', titleheight+300);
 			$right.css('top', titleheight+300);
+			$theSwitcher.css({ 'top' : (titleheight+300) });
+			console.log(titleheight)
 		}else{
+			$title.css('height', 0)
 			$left.css('height', 300);
 			$right.css('top', 300);
+			$theSwitcher.css({ 'top' : 300 });
 		}
 	});
 
 	$title.on('click', 'div', function(e){
 		e.stopPropagation();
+
 	})
 }
 
@@ -194,7 +216,16 @@ function postload(er){
 			$content.addClass('ready')
 			.append(post);
 
-			window.document.title = 'in / ject // ' + thePosts.posts[(lookingat-1)].title;
+			if (lookingat !== 0) window.document.title = 'in / ject // ' + thePosts.posts[(lookingat-1)].title;
+			else window.document.title = 'in / ject';
+
+			if (mobileis){
+				$name.css('top', 100);
+				$left.css('height', 300);
+				$right.css('top', 300);
+				$theSwitcher.css({ 'top' : 300 });
+				$title.removeClass('open');
+			}
 		},500);
 	});
 }
@@ -205,6 +236,7 @@ function trialbind(){
 			if (reading){
 				$master.addClass('editing');
 				$trial.focus();
+				$('#titleedit').css({ 'width' : $('.control').width() - 341 });
 			}
 			if (hasbeenedited) editload();
 		}else alert("Whoa. \n\nYou're navigating into strange waters, good sir -- far stranger than you're prepared to handle. \n\nI'll tell you what's gonna happen here. You're gonna navigate yourself to a page that actually has content on it, and try this again.\n\nWe'll pretend this never happened.");

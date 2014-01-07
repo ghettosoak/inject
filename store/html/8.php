@@ -1,4 +1,4 @@
-<h5>22.05.12</h5><h1>Thoughts on Mobile Development</h1><p>thoughts on mobile websites</p>
+<div><h5>22.05.12</h5><h1>Thoughts on Mobile Development</h1></div><p>thoughts on mobile websites</p>
 
 <p>at the time of this writing, I am presently designing and developing the mobile portion of my agency's new website. as this is the first fully mobile site that I've had the pleasure of creating, I've come across a number of curiosities, that I will share here.</p>
 

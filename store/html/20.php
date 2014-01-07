@@ -1,4 +1,4 @@
-<h5>19.12.12</h5><h1>Goddammit, CSS3Please</h1><p>'2012.08.29: Removed IE6-8 support.'</p>
+<div><h5>19.12.12</h5><h1>Goddammit, CSS3Please</h1></div><p>'2012.08.29: Removed IE6-8 support.'</p>
 
 <p>ha HA! take THAT, legacy! we'll</p>
 

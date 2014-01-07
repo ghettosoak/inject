@@ -1,4 +1,4 @@
-<h5>25.12.13</h5><h1>The Bandwidth of Experience</h1><p>I wrote this on christmas eve. The lady and I had ingested a metric fuckton of fondue and white wine, and proceeded to sleepily watch the jungle book. these were my wearly thoughts afterwards.</p>
+<div><h5>25.12.13</h5><h1>The Bandwidth of Experience</h1></div><p>I wrote this on christmas eve. The lady and I had ingested a metric fuckton of fondue and white wine, and proceeded to sleepily watch the jungle book. these were my wearly thoughts afterwards.</p>
 
 <p>sound has such a profound connection<br />
   perhaps its own connection, as with music<br />

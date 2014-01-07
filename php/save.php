@@ -39,8 +39,8 @@ $b = file_get_contents('../inc/show_b.html');
 $c = file_get_contents('../inc/show_c.html');
 
 file_put_contents('../store/md/'.$post.'.md', $body);
-file_put_contents('../store/html/'.$post.'.php', '<h5>'. $thedate .'</h5><h1>'.$title.'</h1>'.Markdown($body));
-file_put_contents('../store/look/'.$post.'.html', $a . '<title>in / ject // ' . $title . '</title>' . $b . '<h5>'. $thedate .'</h5><h1>'.$title.'</h1>'.Markdown($body).$c);
+file_put_contents('../store/html/'.$post.'.php', '<div><h5>'. $thedate .'</h5><h1>'.$title.'</h1></div>'.Markdown($body));
+file_put_contents('../store/look/'.$post.'.html', $a . '<title>in / ject // ' . $title . '</title>' . $b . '<div><h5>'. $thedate .'</h5><h1>'.$title.'</h1></div>'.Markdown($body).$c);
 
 echo $thedate;
 

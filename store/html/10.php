@@ -1,4 +1,4 @@
-<h5>24.08.12</h5><h1>Deep linking with AJAX</h1><p>deep linking with ajax content</p>
+<div><h5>24.08.12</h5><h1>Deep linking with AJAX</h1></div><p>deep linking with ajax content</p>
 
 <p>I've been building a site that relies heavily upon ajax calls through jquery's superb .load() function, but as the developer, I've only been using it as I intended it to be used: perhaps not as the end user might like to use it. this problem comes in the form of using the browser's navigation to get about the site, rather than the buttons I've lovingly fashioned at the top. in a perfect world, the user would navigate about the site as I bloody well want them to – but, of course, it's not a perfect world. and, as I am the slightest bit stubborn and have decided to build the buttons with divs instead of list items and anchors, the site does not automatically pass a location to the url. never you fear – a little bit of javascript will come to the rescue – but not without first the slightest bit of frustrating research.</p>
 

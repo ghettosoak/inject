@@ -19,11 +19,13 @@ while ($theavailablity = mysql_fetch_array($available, MYSQL_ASSOC)){
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>in / ject</title>
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1" />
+    <meta name="description" content="Thoughts and musings of a designer pretending to be a developer; and an American pretending to be a Swiss." />
     <link rel="stylesheet" type="text/css" href="css/master.css" />
     <script>
     	<?php 
     		echo 'var available = ['.implode(', ', $nav).'];'
     	?>
+    	
     	console.log(available);
 
     	var svg_attr_dark = {'fill':'#00002a', 'stroke':'none'};
@@ -32,8 +34,6 @@ while ($theavailablity = mysql_fetch_array($available, MYSQL_ASSOC)){
 
 <body>
 	<div id="master" class="whiteblack wait">
-	<!-- <div id="master" class="blackwhite wait"> -->
-	<!-- <div id="master" class="whiteblack read go editing nowediting"> -->
 		<div id="left">
 			<div class="edit"></div>
 			<div id="syringe">
@@ -54,10 +54,10 @@ while ($theavailablity = mysql_fetch_array($available, MYSQL_ASSOC)){
 			<div class="edit">
 				<input tabindex="1" type="password" id="trial" />
 				<div class="control">
-					<div id="save"></div>
-					<div id="new"></div>
-					<div id="delete"><p>really?</p></div>
-					<div id="return"></div>
+					<div id="save"><div></div><div></div></div>
+					<div id="new"><div></div><div></div></div>
+					<div id="delete"><div></div><div></div><p>really?</p></div>
+					<div id="return"><div></div><div></div></div>
 					<textarea id="titleedit"></textarea>
 				</div>
 			</div>
@@ -65,9 +65,6 @@ while ($theavailablity = mysql_fetch_array($available, MYSQL_ASSOC)){
 			<div class="content">
 				<textarea id="postedit"></textarea>
 			</div>
-			<!-- <div class="content_editor">
-				
-			</div> -->
 		</div>
 	</div>
 

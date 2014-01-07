@@ -1,4 +1,4 @@
-<h5>15.02.12</h5><h1>Early musings on living in a German-speaking country</h1><p>my name is mike, and I'm a guy from chicago, who now lives in switzerland. it's been a hell of a ride.</p>
+<div><h5>15.02.12</h5><h1>Early musings on living in a German-speaking country</h1></div><p>my name is mike, and I'm a guy from chicago, who now lives in switzerland. it's been a hell of a ride.</p>
 
 <h3>people will only put up with you not speaking the native language for only so long</h3>
 

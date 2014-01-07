@@ -40,22 +40,29 @@
 }
 
 
-
 //DEFINES
 $masterwidth: 1024px;
-$dark: #00002A;
-// 030050
+// $dark: #00002A;
+$dark: #171C36;
+$lauftext:georgia;
 
 * { 
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
 	box-sizing: border-box; 
+	text-rendering: optimizeLegibility;
 }
+
+body{
+	margin:0px;
+}
+
+p{letter-spacing:.2px;}
 
 a img{border:none;}
 a{
 	border:none;
-	// text-decoration: none;
+	text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -64,12 +71,17 @@ h1, h2, h3, h4, h5, h6{
 	line-height: 1em;
 }
 
-::selection {
-	/*background: #;*/
-}
-
-::-moz-selection {
-	/*background: #;*/
+pre{
+	overflow: auto;
+	word-wrap: normal;
+	white-space: pre;
+	padding:10px;
+	border-radius:5px;
+	code{
+		overflow-x:scroll;
+		font-family:liberation;
+		font-size:12px;
+	}
 }
 
 #master{
@@ -94,17 +106,19 @@ h1, h2, h3, h4, h5, h6{
 	#syringe{
 		width:126px;
 		height:126px;
-		margin:-63px 0px 0px -63px;
 		cursor:pointer;
 		div{
 			position: absolute;
 			height:100%;
 			width:100%;
-			background-size: cover;
-			background-position: center center;
+			background-size: 200%;
+			background-image:url(../img/syringe.svg);
+			background-repeat:no-repeat;
+
+			// background-position: center center;
 		}
-		.dark{background-image:url(../img/syringe_dark.svg);}
-		.light{background-image:url(../img/syringe_light.svg);}
+		.dark{background-position:0% center;}
+		.light{background-position:100% center;}
 	}
 	#name{
 		width:126px;
@@ -115,13 +129,15 @@ h1, h2, h3, h4, h5, h6{
 			font-family:u39;
 			font-size:43px;
 			font-weight:normal;
+			line-height:0px;
 			display:table-cell;
-			vertical-align: middle;
 			text-align: center;
+			padding:66px 0px;
 		}
 	}
 	#title{
 		width:100%;
+		height:0px;
 		padding:0px 10%;
 		position: relative;
 		overflow:scroll;
@@ -184,26 +200,39 @@ h1, h2, h3, h4, h5, h6{
 
 #right{
 	right:0px;
-	font-family:georgia;
+	font-family:$lauftext;
 	.content{
 		position:relative;
-		margin:auto;
 		height:100%;
-		padding: 63px 15% 0px;
-		overflow:scroll;
+		width: 100%;
+		padding: 63px 15% 100px;
+		overflow-y:scroll;
+		overflow-x:hidden;
 		line-height: 1.5em;
 		opacity:0;
-		h1:first-of-type{ padding-bottom:10px; }
-		h5:first-of-type{
-			float: right;
-			margin: 36px 0px 0px;
+		div{
+			position:relative;
+			float:left;
+			padding-bottom:10px; 
+			width: 143%;
+			margin: 0px -21.5% 41px;
+			padding: 0px 21.25% 15px;
+			h1{
+				padding-right:65px;				
+			}
+			h5{
+				position: absolute;
+				right: 15%;
+				bottom: 19px;
+			}
 		}
 	}
 	textarea{
 		display:none;
 		position:relative;
 		opacity:0;	
-		overflow:scroll;
+		overflow-x:hidden;
+		overflow-y:scroll;
 		font-family:liberation, monospace;
 		font-size: 18px;
 		resize: none;
@@ -214,7 +243,7 @@ h1, h2, h3, h4, h5, h6{
 	}
 	#titleedit{
 		height: 79px;
-		width: 201px;
+		width: 28%;
 		margin: 55px 0px;
 		float: left;
 	}
@@ -222,8 +251,7 @@ h1, h2, h3, h4, h5, h6{
 		margin:auto;
 		width:100%;
 		height:100%;
-		padding: 19px 0px 150px 0px;
-		background-color:$dark;
+		padding: 19px 0px 0px 0px;
     	font-size: 15px;
 	}
 }
@@ -270,6 +298,7 @@ h1, h2, h3, h4, h5, h6{
 		#syringe{
 			top:50%;
 			left:50%;
+			margin:-63px 0px 0px -63px;
 		}
 		#name{
 			top:50%;
@@ -286,6 +315,7 @@ h1, h2, h3, h4, h5, h6{
 			#title{ 
 				top:189px; 
 				opacity:1;
+				// height:inherit !important;
 			}
 		}
 	}
@@ -297,8 +327,8 @@ h1, h2, h3, h4, h5, h6{
 		width:33.333333%;
 		#syringe{
 			top:95px;
-			left:25%;
-			margin:-63px 0px 0px -63px !important;
+			left:10%;
+			margin:-63px 0px 0px 0px !important;
 		}
 		#name{
 			top:95px;
@@ -325,8 +355,13 @@ h1, h2, h3, h4, h5, h6{
 			.light{opacity:0;}
 		}
 		#title{
+			*{color:$dark;}
 			&:before{ opacity:1; }
 			&:after{ opacity:0; }
+			&.open{
+				&:before{ opacity:0; }
+				&:after{ opacity:1; }
+			}
 		}
 
 		::selection {
@@ -349,7 +384,13 @@ h1, h2, h3, h4, h5, h6{
 		background-color:$dark;
 		color:white;
 		*{color:white;}
-		h1:first-of-type{ border-bottom:1px white solid; }
+		.content{
+			div{ border-bottom:1px white solid; }
+			pre{
+				background-color:white;
+				code{color:$dark;}
+			}
+		}
 
 		::selection {
 			background-color:white;
@@ -379,8 +420,17 @@ h1, h2, h3, h4, h5, h6{
 			.edit{
 				background-color:white;
 				#trial, #titleedit{color:$dark;}
-				.control p{color:$dark;}
+				.control{
+					&>div{
+						&>div:nth-of-type(1){opacity:1;}
+						&>div:nth-of-type(2){opacity:0;}
+					}
+					p{color:$dark;}
+				}
+				&:nth-of-type(1){display:block;}
+				&:nth-of-type(2){display:none;}
 			}
+			#postedit{background-color:$dark;}
 		}
 	}
 }
@@ -394,8 +444,13 @@ h1, h2, h3, h4, h5, h6{
 			.light{opacity:1;}
 		}
 		#title{
+			*{color:white;}
 			&:before{ opacity:0; }
 			&:after{ opacity:1; }
+			&.open{
+				&:before{ opacity:1; }
+				&:after{ opacity:0; }
+			}
 		}
 
 		::selection {
@@ -418,7 +473,13 @@ h1, h2, h3, h4, h5, h6{
 		background-color:white;
 		color:$dark;
 		*{color:$dark;}
-		h1:first-of-type{ border-bottom:1px $dark solid; }
+		.content{
+			div{ border-bottom:1px $dark solid; }
+			pre{
+				background-color:$dark;
+				code{color:white;}
+			}
+		}
 
 		::selection {
 			background-color:lighten($dark, 7.5%);
@@ -447,9 +508,20 @@ h1, h2, h3, h4, h5, h6{
 		#right{
 			.edit{
 				background-color:$dark;
-				#trial, #titleedit{color:white;}
-				.control p{color:white;}
+				#trial, #titleedit{
+					color:white;
+					background-color:$dark;
+				}
+				.control{
+					&>div{
+						&>div:nth-of-type(1){opacity:0;}
+						&>div:nth-of-type(2){opacity:1;}
+					}
+					p{color:white;}
+				}
+				
 			}
+			#postedit{background-color:white;}	
 		}
 	}
 }
@@ -458,12 +530,12 @@ h1, h2, h3, h4, h5, h6{
 	.edit{display:block !important;}
 
 	#right{
-		.content{padding-top:190px;}
+		.content{padding:190px 15% 0px;}
 		.edit{
 			#trial, .control{
-				width:541px;
+				width:100%;
 				position:relative;
-				margin:auto;
+				padding:0px 15%;
 				height:100%;
 			}
 			#trial{
@@ -473,32 +545,40 @@ h1, h2, h3, h4, h5, h6{
 				margin: auto;
 				display: block;
 				outline: 0px !important;
-				padding: 64px 0px;
+				padding: 64px 15%;
 			}
 			.control{
 				display:none;
-				div{
+				&>div{
 					width:65px;
 					height:65px;
 					position:relative;
 					float:left;
 					margin: 60px 20px 60px 0px;
 					cursor:pointer;
-					background-size:cover;
-					background-position: center center;
-					img{ width:65px; }
+					overflow:hidden;
+					&>div{
+						position: absolute;
+						height:100%;
+						width:200%;
+						top:0px;
+						background-size:100%;
+						background-image:url(../img/edit.svg);
+						&:nth-of-type(1){left:0px;}
+						&:nth-of-type(2){left:-100%;}
+					}
 					p{
 						opacity:0;
 						text-align: center;
-						font-family:georgia;
+						font-family:$lauftext;
 						font-style:italic;
 						font-size:10px;
 					}
 				}
-				#save{background-image:url(../img/save.svg);}
-				#new{background-image:url(../img/new.svg);}
-				#delete{background-image:url(../img/delete.svg);}
-				#return{background-image:url(../img/return.svg);}
+				#save div{   background-position:0 -0*100%; }
+				#new div{    background-position:0 -1*100%; }
+				#delete div{ background-position:0 -2*100%; }
+				#return div{ background-position:0 -3*100%; }
 
 				.really p{ opacity:1; }
 			}
@@ -517,11 +597,19 @@ h1, h2, h3, h4, h5, h6{
 
 @media only screen and (max-width: 880px) /*IPAD*/ {
 	#left #title div{
-		span{ width:30%;}
-		h2{ width:70%;}
+		span{ width:30%; }
+		h2{ width:70%; }
 	}
-	#right .content{ padding:63px 20px 0px; }
-
+	#right{
+		.content{ padding:63px 20px 0px; }
+		#trial, .control{padding:0px 20px !important;}
+		#titleedit{width:32%;}
+	}
+	.read #left #syringe{
+		height:80px;
+		width:80px;
+		margin:-40px 0px 0px 0px !important;
+	}
 }
 
 @media only screen and (max-width: 480px) /*IPHONE*/{
@@ -567,7 +655,7 @@ h1, h2, h3, h4, h5, h6{
 				margin:0px 0px 0px -40px !important;
 			}
 			#syringe{ top:20px; }
-			#name{ top:125px; }
+			#name{ top:100px; }
 			#title{
 				top:215px !important;
 				padding-top:70px;
@@ -581,16 +669,17 @@ h1, h2, h3, h4, h5, h6{
 					top:0px;
 					left:50%;
 					margin-left:-30px;
-					background-size: 80px 80px;
-					background-position: center center;
+					border-radius:60px;
+					background-size: 200%;
+					background-image:url(../img/menu.svg);
 				}
 
 				&:before{
-					background-image:url(../img/menu_dark.svg);
+					background-position:0px 0px;
 					background-color:white;
 				}
 				&:after{
-					background-image:url(../img/menu_light.svg);
+					background-position:100% 0px;
 					background-color:$dark;
 				}
 
@@ -600,14 +689,10 @@ h1, h2, h3, h4, h5, h6{
 				}
 
 				&.open{
-					width:80% !important;
 					height:initial !important;
-					left:10% !important;
 					margin:0px !important;
 
 					div{ display:block; }
-					&:before{ opacity:0; }
-					&:after{ opacity:1; }
 				}
 			}
 		}
@@ -616,7 +701,7 @@ h1, h2, h3, h4, h5, h6{
 			height:initial;
 			top:300px;
 			.content{
-				padding:15px 20px;
+				padding:22px 20px;
 				min-height:500px;
 			}
 		}

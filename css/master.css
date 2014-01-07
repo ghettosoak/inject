@@ -25,24 +25,37 @@
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility; }
+
+body {
+  margin: 0px; }
+
+p {
+  letter-spacing: .2px; }
 
 a img {
   border: none; }
 
 a {
-  border: none; }
+  border: none;
+  text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: u47;
   font-weight: normal;
   line-height: 1em; }
 
-::selection {
-  /*background: #;*/ }
-
-::-moz-selection {
-  /*background: #;*/ }
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+  padding: 10px;
+  border-radius: 5px; }
+  pre code {
+    overflow-x: scroll;
+    font-family: liberation;
+    font-size: 12px; }
 
 #master {
   position: absolute;
@@ -63,18 +76,18 @@ h1, h2, h3, h4, h5, h6 {
   #left #syringe {
     width: 126px;
     height: 126px;
-    margin: -63px 0px 0px -63px;
     cursor: pointer; }
     #left #syringe div {
       position: absolute;
       height: 100%;
       width: 100%;
-      background-size: cover;
-      background-position: center center; }
+      background-size: 200%;
+      background-image: url(../img/syringe.svg);
+      background-repeat: no-repeat; }
     #left #syringe .dark {
-      background-image: url(../img/syringe_dark.svg); }
+      background-position: 0% center; }
     #left #syringe .light {
-      background-image: url(../img/syringe_light.svg); }
+      background-position: 100% center; }
   #left #name {
     width: 126px;
     height: 126px;
@@ -84,11 +97,13 @@ h1, h2, h3, h4, h5, h6 {
       font-family: u39;
       font-size: 43px;
       font-weight: normal;
+      line-height: 0px;
       display: table-cell;
-      vertical-align: middle;
-      text-align: center; }
+      text-align: center;
+      padding: 66px 0px; }
   #left #title {
     width: 100%;
+    height: 0px;
     padding: 0px 10%;
     position: relative;
     overflow: scroll; }
@@ -145,22 +160,32 @@ h1, h2, h3, h4, h5, h6 {
   font-family: georgia; }
   #right .content {
     position: relative;
-    margin: auto;
     height: 100%;
-    padding: 63px 15% 0px;
-    overflow: scroll;
+    width: 100%;
+    padding: 63px 15% 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
     line-height: 1.5em;
     opacity: 0; }
-    #right .content h1:first-of-type {
-      padding-bottom: 10px; }
-    #right .content h5:first-of-type {
-      float: right;
-      margin: 36px 0px 0px; }
+    #right .content div {
+      position: relative;
+      float: left;
+      padding-bottom: 10px;
+      width: 143%;
+      margin: 0px -21.5% 41px;
+      padding: 0px 21.25% 15px; }
+      #right .content div h1 {
+        padding-right: 65px; }
+      #right .content div h5 {
+        position: absolute;
+        right: 15%;
+        bottom: 19px; }
   #right textarea {
     display: none;
     position: relative;
     opacity: 0;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     font-family: liberation, monospace;
     font-size: 18px;
     resize: none;
@@ -171,15 +196,14 @@ h1, h2, h3, h4, h5, h6 {
       outline: none; }
   #right #titleedit {
     height: 79px;
-    width: 201px;
+    width: 28%;
     margin: 55px 0px;
     float: left; }
   #right #postedit {
     margin: auto;
     width: 100%;
     height: 100%;
-    padding: 19px 0px 150px 0px;
-    background-color: #00002a;
+    padding: 19px 0px 0px 0px;
     font-size: 15px; }
 
 .edit {
@@ -215,7 +239,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 50%; }
 .start #left #syringe {
   top: 50%;
-  left: 50%; }
+  left: 50%;
+  margin: -63px 0px 0px -63px; }
 .start #left #name {
   top: 50%;
   left: 150%;
@@ -235,8 +260,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 33.333333%; }
   .read #left #syringe {
     top: 95px;
-    left: 25%;
-    margin: -63px 0px 0px -63px !important; }
+    left: 10%;
+    margin: -63px 0px 0px 0px !important; }
   .read #left #name {
     top: 95px;
     left: 75%; }
@@ -252,48 +277,58 @@ h1, h2, h3, h4, h5, h6 {
 
 .whiteblack #left {
   background-color: white;
-  color: #00002a; }
+  color: #171c36; }
   .whiteblack #left #syringe .dark {
     opacity: 1; }
   .whiteblack #left #syringe .light {
     opacity: 0; }
+  .whiteblack #left #title * {
+    color: #171c36; }
   .whiteblack #left #title:before {
     opacity: 1; }
   .whiteblack #left #title:after {
     opacity: 0; }
+  .whiteblack #left #title.open:before {
+    opacity: 0; }
+  .whiteblack #left #title.open:after {
+    opacity: 1; }
   .whiteblack #left ::selection {
-    background-color: #000050;
+    background-color: #222a51;
     color: white; }
   .whiteblack #left ::-moz-selection {
-    background-color: #000050;
+    background-color: #222a51;
     color: white; }
 .whiteblack #switch .left {
-  background-color: #00002a; }
+  background-color: #171c36; }
 .whiteblack #switch .right {
   background-color: white; }
 .whiteblack #right {
-  background-color: #00002a;
+  background-color: #171c36;
   color: white; }
   .whiteblack #right * {
     color: white; }
-  .whiteblack #right h1:first-of-type {
+  .whiteblack #right .content div {
     border-bottom: 1px white solid; }
+  .whiteblack #right .content pre {
+    background-color: white; }
+    .whiteblack #right .content pre code {
+      color: #171c36; }
   .whiteblack #right ::selection {
     background-color: white;
-    color: #00002a; }
+    color: #171c36; }
   .whiteblack #right ::-moz-selection {
     background-color: white;
-    color: #00002a; }
+    color: #171c36; }
 .whiteblack.wait #title {
   color: white; }
 .whiteblack.start #left #name h1 {
   color: white; }
 .whiteblack.read #left #name h1 {
-  color: #00002a; }
+  color: #171c36; }
 .whiteblack.editing #left #name h1 {
   color: white !important; }
 .whiteblack.editing #left .edit {
-  background-color: #00002a; }
+  background-color: #171c36; }
 .whiteblack.editing #left #syringe .dark {
   opacity: 0; }
 .whiteblack.editing #left #syringe .light {
@@ -301,52 +336,72 @@ h1, h2, h3, h4, h5, h6 {
 .whiteblack.editing #right .edit {
   background-color: white; }
   .whiteblack.editing #right .edit #trial, .whiteblack.editing #right .edit #titleedit {
-    color: #00002a; }
+    color: #171c36; }
+  .whiteblack.editing #right .edit .control > div > div:nth-of-type(1) {
+    opacity: 1; }
+  .whiteblack.editing #right .edit .control > div > div:nth-of-type(2) {
+    opacity: 0; }
   .whiteblack.editing #right .edit .control p {
-    color: #00002a; }
+    color: #171c36; }
+  .whiteblack.editing #right .edit:nth-of-type(1) {
+    display: block; }
+  .whiteblack.editing #right .edit:nth-of-type(2) {
+    display: none; }
+.whiteblack.editing #right #postedit {
+  background-color: #171c36; }
 
 .blackwhite #left {
-  background-color: #00002a;
+  background-color: #171c36;
   color: white; }
   .blackwhite #left #syringe .dark {
     opacity: 0; }
   .blackwhite #left #syringe .light {
     opacity: 1; }
+  .blackwhite #left #title * {
+    color: white; }
   .blackwhite #left #title:before {
     opacity: 0; }
   .blackwhite #left #title:after {
     opacity: 1; }
+  .blackwhite #left #title.open:before {
+    opacity: 1; }
+  .blackwhite #left #title.open:after {
+    opacity: 0; }
   .blackwhite #left ::selection {
     background-color: white;
-    color: #00002a; }
+    color: #171c36; }
   .blackwhite #left ::-moz-selection {
     background-color: white;
-    color: #00002a; }
+    color: #171c36; }
 .blackwhite #switch .left {
   background-color: white; }
 .blackwhite #switch .right {
-  background-color: #00002a; }
+  background-color: #171c36; }
 .blackwhite #right {
   background-color: white;
-  color: #00002a; }
+  color: #171c36; }
   .blackwhite #right * {
-    color: #00002a; }
-  .blackwhite #right h1:first-of-type {
-    border-bottom: 1px #00002a solid; }
+    color: #171c36; }
+  .blackwhite #right .content div {
+    border-bottom: 1px #171c36 solid; }
+  .blackwhite #right .content pre {
+    background-color: #171c36; }
+    .blackwhite #right .content pre code {
+      color: white; }
   .blackwhite #right ::selection {
-    background-color: #000050;
+    background-color: #222a51;
     color: white; }
   .blackwhite #right ::-moz-selection {
-    background-color: #000050;
+    background-color: #222a51;
     color: white; }
 .blackwhite.wait #title {
-  color: #00002a; }
+  color: #171c36; }
 .blackwhite.start #left #name h1 {
-  color: #00002a; }
+  color: #171c36; }
 .blackwhite.read #left #name h1 {
   color: white; }
 .blackwhite.editing #left #name h1 {
-  color: #00002a !important; }
+  color: #171c36 !important; }
 .blackwhite.editing #left .edit {
   background-color: white; }
 .blackwhite.editing #left #syringe .dark {
@@ -354,20 +409,27 @@ h1, h2, h3, h4, h5, h6 {
 .blackwhite.editing #left #syringe .light {
   opacity: 0; }
 .blackwhite.editing #right .edit {
-  background-color: #00002a; }
+  background-color: #171c36; }
   .blackwhite.editing #right .edit #trial, .blackwhite.editing #right .edit #titleedit {
-    color: white; }
+    color: white;
+    background-color: #171c36; }
+  .blackwhite.editing #right .edit .control > div > div:nth-of-type(1) {
+    opacity: 0; }
+  .blackwhite.editing #right .edit .control > div > div:nth-of-type(2) {
+    opacity: 1; }
   .blackwhite.editing #right .edit .control p {
     color: white; }
+.blackwhite.editing #right #postedit {
+  background-color: white; }
 
 .editing .edit {
   display: block !important; }
 .editing #right .content {
-  padding-top: 190px; }
+  padding: 190px 15% 0px; }
 .editing #right .edit #trial, .editing #right .edit .control {
-  width: 541px;
+  width: 100%;
   position: relative;
-  margin: auto;
+  padding: 0px 15%;
   height: 100%; }
 .editing #right .edit #trial {
   font-family: u39;
@@ -376,34 +438,42 @@ h1, h2, h3, h4, h5, h6 {
   margin: auto;
   display: block;
   outline: 0px !important;
-  padding: 64px 0px; }
+  padding: 64px 15%; }
 .editing #right .edit .control {
   display: none; }
-  .editing #right .edit .control div {
+  .editing #right .edit .control > div {
     width: 65px;
     height: 65px;
     position: relative;
     float: left;
     margin: 60px 20px 60px 0px;
     cursor: pointer;
-    background-size: cover;
-    background-position: center center; }
-    .editing #right .edit .control div img {
-      width: 65px; }
-    .editing #right .edit .control div p {
+    overflow: hidden; }
+    .editing #right .edit .control > div > div {
+      position: absolute;
+      height: 100%;
+      width: 200%;
+      top: 0px;
+      background-size: 100%;
+      background-image: url(../img/edit.svg); }
+      .editing #right .edit .control > div > div:nth-of-type(1) {
+        left: 0px; }
+      .editing #right .edit .control > div > div:nth-of-type(2) {
+        left: -100%; }
+    .editing #right .edit .control > div p {
       opacity: 0;
       text-align: center;
       font-family: georgia;
       font-style: italic;
       font-size: 10px; }
-  .editing #right .edit .control #save {
-    background-image: url(../img/save.svg); }
-  .editing #right .edit .control #new {
-    background-image: url(../img/new.svg); }
-  .editing #right .edit .control #delete {
-    background-image: url(../img/delete.svg); }
-  .editing #right .edit .control #return {
-    background-image: url(../img/return.svg); }
+  .editing #right .edit .control #save div {
+    background-position: 0 0%; }
+  .editing #right .edit .control #new div {
+    background-position: 0 -100%; }
+  .editing #right .edit .control #delete div {
+    background-position: 0 -200%; }
+  .editing #right .edit .control #return div {
+    background-position: 0 -300%; }
   .editing #right .edit .control .really p {
     opacity: 1; }
 
@@ -418,7 +488,16 @@ h1, h2, h3, h4, h5, h6 {
     width: 70%; }
 
   #right .content {
-    padding: 63px 20px 0px; } }
+    padding: 63px 20px 0px; }
+  #right #trial, #right .control {
+    padding: 0px 20px !important; }
+  #right #titleedit {
+    width: 32%; }
+
+  .read #left #syringe {
+    height: 80px;
+    width: 80px;
+    margin: -40px 0px 0px 0px !important; } }
 @media only screen and (max-width: 480px) {
   #left, #right {
     width: 100% !important; }
@@ -462,7 +541,7 @@ h1, h2, h3, h4, h5, h6 {
     .read #left #syringe {
       top: 20px; }
     .read #left #name {
-      top: 125px; }
+      top: 100px; }
     .read #left #title {
       top: 215px !important;
       padding-top: 70px; }
@@ -475,34 +554,29 @@ h1, h2, h3, h4, h5, h6 {
         top: 0px;
         left: 50%;
         margin-left: -30px;
-        background-size: 80px 80px;
-        background-position: center center; }
+        border-radius: 60px;
+        background-size: 200%;
+        background-image: url(../img/menu.svg); }
       .read #left #title:before {
-        background-image: url(../img/menu_dark.svg);
+        background-position: 0px 0px;
         background-color: white; }
       .read #left #title:after {
-        background-image: url(../img/menu_light.svg);
-        background-color: #00002a; }
+        background-position: 100% 0px;
+        background-color: #171c36; }
       .read #left #title div {
         display: none;
         height: 42px; }
       .read #left #title.open {
-        width: 80% !important;
         height: initial !important;
-        left: 10% !important;
         margin: 0px !important; }
         .read #left #title.open div {
           display: block; }
-        .read #left #title.open:before {
-          opacity: 0; }
-        .read #left #title.open:after {
-          opacity: 1; }
   .read #switch {
     top: 300px; }
   .read #right {
     height: initial;
     top: 300px; }
     .read #right .content {
-      padding: 15px 20px;
+      padding: 22px 20px;
       min-height: 500px; } }
 @-moz-document url-prefix() {}

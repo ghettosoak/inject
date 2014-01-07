@@ -1,4 +1,4 @@
-<h5>12.04.12</h5><h1>On Obfuscation</h1><p>this makes me sad:</p>
+<div><h5>12.04.12</h5><h1>On Obfuscation</h1></div><p>this makes me sad:</p>
 
 <p>Javascript Obfuscator - Stop theft of your JavaScript sources!</p>
 
