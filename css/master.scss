@@ -617,13 +617,7 @@ pre{
 }
 
 @media only screen and (max-width: 480px) /*IPHONE*/{
-	body{
-		
-	}
 	#left, #right{ width:100% !important; }
-	#left{
-		padding-top:0px;
-	}	
 	#switch{
 		left:initial !important;
 		right:0px;
@@ -658,6 +652,7 @@ pre{
 	.read{
 		#left{
 			height:300px;
+			padding-top:0px;
 			#syringe, #name{
 				width:80px !important;
 				height:80px !important;

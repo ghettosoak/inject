@@ -138,6 +138,7 @@ function start_titleensure(){
 			$left.toggleClass('open');
 			if ($left.hasClass('open')){
 				if (mobileis){
+					$left.css('height', titleheight+189);
 					$title.css('height', titleheight);
 					$right.css({ 'top' : titleheight+189 });
 					$name.css({ 'top' : (titleheight+189) + (wpheight/4) });
@@ -146,6 +147,7 @@ function start_titleensure(){
 			}else{
 				if (!mobileis) $title.css({ 'height' : 0 });
 				else{
+					$left.css('height', '50%');
 					$title.css('height', 0);
 					$right.css({ 'top' : '50%' });
 					$name.css({ 'top' : '150%' });
