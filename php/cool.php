@@ -2,12 +2,10 @@
 
 include('help/delicious_unjson.php');
 
-$date = mysql_query('select date from post where id = 7');
+$thedate = 'today';
+$title = 'nope';
 
-$date = mysql_fetch_array($date, MYSQL_BOTH);
+mysql_query('insert into post set date = "'.$thedate.'", title = "'.$title.'"');
 
-$date = $date['date'];
-
-echo $date;
-
+echo 'yeah!';
 ?>

@@ -8,7 +8,7 @@ $post = $_REQUEST['post'];
 $title = $_REQUEST['title'];
 $body = $_REQUEST['body'];
 
-if ($isnew == 'true'){
+if ($isnew === 'true'){
 	$today = getdate();
 	$day;
 	$month;
@@ -24,8 +24,7 @@ if ($isnew == 'true'){
 
 	$thedate = $day.'.'.$month.'.'.$year;
 
-	mysql_query('insert into post set date = "'.$thedate.'", title = "'.$title.'"');
-	echo $thedate;
+	mysql_query('insert into post set id = "' . $post . '",  date = "'.$thedate.'", title = "'.$title.'"');
 }else{
 	mysql_query('update post set title = "'.$title.'" where id ='.$post);
 

@@ -164,8 +164,6 @@ function navload(){
 
 				if (!reading) start_titleensure();
 				else postpointer();
-
-				if (reading && !mobileis) $title.css('height', (wpheight-189));
 			}
 		});
 		lastpostis = parseInt(theNav.lastpost);
@@ -195,8 +193,7 @@ function start_titleensure(){
 		if (!reading){
 			$left.toggleClass('open');
 			if ($left.hasClass('open')){
-				if (!mobileis) $title.css({ 'height': (wpheight - 190) });
-				else{
+				if (mobileis){
 					$title.css('height', titleheight);
 					$right.css({ 'top' : titleheight+189 });
 					$name.css({ 'top' : (titleheight+189) + (wpheight/4) });
