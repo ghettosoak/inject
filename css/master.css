@@ -39,7 +39,9 @@ a img {
   border: none; }
 
 a {
-  border: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -311,6 +313,8 @@ pre {
   color: white; }
   .whiteblack #right * {
     color: white; }
+  .whiteblack #right a {
+    border-bottom: 1px white dotted; }
   .whiteblack #right .content div {
     border-bottom: 1px white solid; }
   .whiteblack #right .content pre {
@@ -386,6 +390,8 @@ pre {
   color: #171c36; }
   .blackwhite #right * {
     color: #171c36; }
+  .blackwhite #right a {
+    border-bottom: 1px #171c36 dotted; }
   .blackwhite #right .content div {
     border-bottom: 1px #171c36 solid; }
   .blackwhite #right .content pre {

@@ -61,8 +61,11 @@ body{
 p{letter-spacing:.2px;}
 
 a img{border:none;}
+
 a{
-	border:none;
+	border-top:none;
+	border-left:none;
+	border-right:none;
 	text-decoration: none;
 }
 
@@ -388,6 +391,9 @@ pre{
 		background-color:$dark;
 		color:white;
 		*{color:white;}
+		a{
+			border-bottom:1px white dotted;
+		}
 		.content{
 			div{ border-bottom:1px white solid; }
 			pre{
@@ -477,6 +483,9 @@ pre{
 		background-color:white;
 		color:$dark;
 		*{color:$dark;}
+		a{
+			border-bottom:1px $dark dotted;
+		}
 		.content{
 			div{ border-bottom:1px $dark solid; }
 			pre{
