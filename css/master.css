@@ -46,8 +46,13 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: u47;
-  font-weight: normal;
+  font-weight: normal; }
+
+h1 {
   line-height: 1em; }
+
+h2, h3, h4, h5, h6 {
+  line-height: 1.4em; }
 
 pre {
   overflow: auto;
@@ -128,7 +133,8 @@ pre {
         font-family: u67;
         font-size: 15px;
         font-weight: normal;
-        margin: 10px 0px;
+        margin: 8px 0px;
+        padding-left: 10px;
         width: 80%; }
     #left #title:before, #left #title:after {
       display: none; }
@@ -161,35 +167,40 @@ pre {
 
 #right {
   right: 0px;
-  font-family: georgia; }
+  font-family: georgia;
+  overflow-y: scroll;
+  overflow-x: hidden; }
   #right .content {
     position: relative;
-    height: 100%;
-    width: 100%;
-    padding: 63px 15% 100px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    line-height: 1.5em;
-    opacity: 0; }
+    width: 600px;
+    margin-left: -300px;
+    left: 50%;
+    padding: 63px 0 50px;
+    line-height: 1.65em;
+    opacity: 0;
+    min-height: 100%;
+    margin-bottom: -150px; }
+    #right .content:after {
+      content: '';
+      display: block;
+      height: 150px; }
     #right .content div {
       position: relative;
       float: left;
       padding-bottom: 10px;
-      width: 143%;
-      margin: 0px -21.5% 41px;
-      padding: 0px 21.25% 15px; }
+      width: 400%;
+      margin: 0px -100% 41px;
+      padding: 0px 200% 15px 100%; }
       #right .content div h1 {
         padding-right: 65px; }
       #right .content div h5 {
         position: absolute;
-        right: 15%;
-        bottom: 19px; }
+        right: 50%;
+        bottom: 16px; }
   #right textarea {
     display: none;
     position: relative;
     opacity: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
     font-family: liberation, monospace;
     font-size: 18px;
     resize: none;
@@ -204,11 +215,91 @@ pre {
     margin: 55px 0px;
     float: left; }
   #right #postedit {
-    margin: auto;
+    margin: 0 auto -190px;
     width: 100%;
     height: 100%;
     padding: 19px 0px 0px 0px;
     font-size: 15px; }
+  #right #articleNav {
+    position: relative;
+    left: 0px;
+    width: 100%;
+    opacity: 0;
+    display: none; }
+    #right #articleNav.false #prev,
+    #right #articleNav.false #next {
+      display: none; }
+    #right #articleNav.false #back {
+      display: block; }
+    #right #articleNav.first #prev {
+      display: none; }
+    #right #articleNav.last #next {
+      display: none; }
+    #right #articleNav:before, #right #articleNav:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0px;
+      z-index: 100; }
+    #right #articleNav:before {
+      height: 30px;
+      width: 30px;
+      margin: -15px 0 0 -15px; }
+    #right #articleNav:after {
+      height: 10px;
+      width: 10px;
+      margin: -5px 0 0 -5px;
+      border-radius: 0;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    #right #articleNav:hover:after {
+      border-radius: 10px; }
+    #right #articleNav .articleNavInside {
+      width: 600px;
+      height: 100px;
+      position: relative;
+      margin: auto;
+      padding-top: 50px;
+      margin-bottom: 50px; }
+    #right #articleNav #prev,
+    #right #articleNav #next,
+    #right #articleNav #back {
+      position: relative;
+      height: 50px;
+      width: 50px;
+      background-size: 100px 50px;
+      cursor: pointer;
+      display: block; }
+      #right #articleNav #prev:before, #right #articleNav #prev:after,
+      #right #articleNav #next:before,
+      #right #articleNav #next:after,
+      #right #articleNav #back:before,
+      #right #articleNav #back:after {
+        position: absolute;
+        height: 20px;
+        top: 15px;
+        font-style: italic; }
+    #right #articleNav #prev {
+      float: left;
+      background-position: 0px 0px; }
+      #right #articleNav #prev:after {
+        content: 'previous';
+        left: 50px; }
+    #right #articleNav #next {
+      float: right;
+      background-position: 50px 0px; }
+      #right #articleNav #next:before {
+        content: 'next';
+        right: 50px; }
+    #right #articleNav #back {
+      display: none;
+      margin: auto;
+      background-position: 0px 0px; }
+      #right #articleNav #back:after {
+        content: 'back';
+        left: 50px; }
 
 .edit {
   display: none;
@@ -262,24 +353,52 @@ pre {
   left: 50%; }
 
 .read #left {
-  width: 33.333333%; }
+  width: 30%; }
   .read #left #syringe {
     top: 95px;
-    left: 10%;
+    width: 15%;
+    left: 9%;
     margin: -63px 0px 0px 0px !important; }
   .read #left #name {
     top: 95px;
-    left: 75%; }
+    left: 80%;
+    opacity: 0;
+    z-index: 0;
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    -o-transform: translateX(20px);
+    transform: translateX(20px); }
   .read #left #title {
     margin-top: 0px !important;
     top: 0px;
-    height: 100%; }
+    height: 100%;
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    -o-transform: translateX(20px);
+    transform: translateX(20px); }
+  .read #left:hover ~ #right {
+    right: -20%; }
+  .read #left:hover ~ #switch {
+    left: 30%; }
+  .read #left:hover #syringe {
+    width: 126px;
+    left: 10%; }
+  .read #left:hover #name, .read #left:hover #title {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    transform: translateX(0px); }
 .read #switch {
-  left: 33.333333%; }
+  left: 10%; }
 .read #right {
-  width: 66.666666%; }
+  width: 90%; }
   .read #right .ready {
     opacity: 1; }
+  .read #right .ready ~ #articleNav {
+    opacity: 1;
+    display: block; }
 
 .whiteblack #left {
   background-color: white;
@@ -327,6 +446,16 @@ pre {
   .whiteblack #right ::-moz-selection {
     background-color: white;
     color: #171c36; }
+  .whiteblack #right .articleNavInside {
+    border-top: 1px white dashed; }
+  .whiteblack #right #articleNav:before {
+    background-color: #171c36; }
+  .whiteblack #right #articleNav:after {
+    background-color: white; }
+  .whiteblack #right #articleNav #prev, .whiteblack #right #articleNav #next, .whiteblack #right #articleNav #back {
+    background-image: url(../img/arrows_light.png); }
+    .whiteblack #right #articleNav #prev:before, .whiteblack #right #articleNav #prev:after, .whiteblack #right #articleNav #next:before, .whiteblack #right #articleNav #next:after, .whiteblack #right #articleNav #back:before, .whiteblack #right #articleNav #back:after {
+      color: white; }
 .whiteblack.wait #title {
   color: white; }
 .whiteblack.start #left #name h1 {
@@ -404,6 +533,16 @@ pre {
   .blackwhite #right ::-moz-selection {
     background-color: #222a51;
     color: white; }
+  .blackwhite #right .articleNavInside {
+    border-top: 1px #171c36 dashed; }
+  .blackwhite #right #articleNav:before {
+    background-color: white; }
+  .blackwhite #right #articleNav:after {
+    background-color: #171c36; }
+  .blackwhite #right #articleNav #prev, .blackwhite #right #articleNav #next, .blackwhite #right #articleNav #back {
+    background-image: url(../img/arrows_dark.png); }
+    .blackwhite #right #articleNav #prev:before, .blackwhite #right #articleNav #prev:after, .blackwhite #right #articleNav #next:before, .blackwhite #right #articleNav #next:after, .blackwhite #right #articleNav #back:before, .blackwhite #right #articleNav #back:after {
+      color: #171c36; }
 .blackwhite.wait #title {
   color: #171c36; }
 .blackwhite.start #left #name h1 {
@@ -435,7 +574,8 @@ pre {
 .editing .edit {
   display: block !important; }
 .editing #right .content {
-  padding: 190px 15% 0px; }
+  padding: 190px 0 0px;
+  height: 100%; }
 .editing #right .edit #trial, .editing #right .edit .control {
   width: 100%;
   position: relative;
@@ -486,28 +626,37 @@ pre {
     background-position: 0 -300%; }
   .editing #right .edit .control .really p {
     opacity: 1; }
+.editing #right #articleNav {
+  display: none !important; }
 
 .nowediting textarea {
   display: block !important;
   opacity: 1 !important; }
 
-@media only screen and (max-width: 880px) {
-  #left #title div span {
-    width: 30%; }
-  #left #title div h2 {
-    width: 70%; }
+@media only screen and (max-width: 725px) {
+  .read #left {
+    width: 50%; }
+    .read #left #syringe {
+      width: 14%;
+      left: 3%; }
+    .read #left #title div span {
+      width: 30%; }
+    .read #left #title div h2 {
+      width: 70%; }
+    .read #left:hover ~ #right {
+      right: -40%; }
+    .read #left:hover ~ #switch {
+      left: 50%; }
 
   #right .content {
-    padding: 63px 20px 0px; }
+    width: 400px;
+    margin-left: -200px; }
   #right #trial, #right .control {
     padding: 0px 20px !important; }
   #right #titleedit {
     width: 32%; }
-
-  .read #left #syringe {
-    height: 80px;
-    width: 80px;
-    margin: -40px 0px 0px 0px !important; } }
+  #right #articleNav .articleNavInside {
+    width: 400px; } }
 @media only screen and (max-width: 480px) {
   #left, #right {
     width: 100% !important; }
@@ -552,10 +701,20 @@ pre {
     .read #left #syringe {
       top: 20px; }
     .read #left #name {
-      top: 100px; }
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      transform: translateX(0);
+      top: 100px;
+      opacity: 1; }
     .read #left #title {
       top: 215px !important;
-      padding-top: 70px; }
+      padding-top: 70px;
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -o-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1; }
       .read #left #title:before, .read #left #title:after {
         display: block;
         content: '';
@@ -575,19 +734,31 @@ pre {
         background-position: 100% 0px;
         background-color: #171c36; }
       .read #left #title div {
-        display: none;
-        height: 42px; }
+        display: none; }
       .read #left #title.open {
         height: initial !important;
         margin: 0px !important; }
         .read #left #title.open div {
           display: block; }
+    .read #left:hover ~ #right {
+      width: 100%;
+      right: 0%; }
   .read #switch {
     top: 300px; }
   .read #right {
-    height: initial;
-    top: 300px; }
+    height: auto;
+    top: 300px;
+    overflow-y: visible; }
     .read #right .content {
-      padding: 22px 20px;
-      min-height: 500px; } }
+      position: relative;
+      right: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      padding: 22px 20px 50px;
+      min-height: 500px; }
+    .read #right #articleNav {
+      padding: 0 20px; }
+      .read #right #articleNav .articleNavInside {
+        width: 100%; } }
 @-moz-document url-prefix() {}

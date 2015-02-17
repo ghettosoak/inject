@@ -15,6 +15,8 @@ var reading = false, editing = false, hasbeenedited = false, newpost = false;
 var lastpostis, titlequicker = false;
 var $trial;
 var $theSwitcher;
+var $articleNav;
+var $prev, $next, $back;
 var trialcount = 0;
 // var available = [] // STOP! DEFINED THROUGH PHP @ INDEX!
 var thePosts = {};
@@ -36,6 +38,12 @@ $(document).ready(function(){
 
 	$trial = $('#trial');
 
+	$articleNav = $('#articleNav');
+
+	$prev = $('#prev');
+	$next = $('#next');
+	$back = $('#back');
+
 	$content = $right.find('.content');
 
 	$theSwitcher = $('#switch');
@@ -48,23 +56,42 @@ $(document).ready(function(){
 		$master.addClass('read');
 	}
 
-	console.log(document.cookie);
 
-	if (document.cookie === 'blackwhite'){
+	if (readCookie('colour') === 'blackwhite'){
 		$master.removeClass('whiteblack')
 		.addClass('blackwhite');
 	}else{
-		document.cookie = 'whiteblack';
+		createCookie('colour', 'whiteblack');
 	}
+
+	$prev.click(function(){
+		lookingat--;
+		window.location.hash = '!' + lookingat;
+	});
+
+	$next.click(function(){
+		lookingat++;
+		window.location.hash = '!' + lookingat;
+	});
+
+	$back.click(function(){
+		console.log('WHAT')
+		history.go(-1);
+	})
 });
 
 $windowpane.load(function(){
 	if (reading){
 		lookingat = parseInt(window.location.hash.split('!')[1]);
-		if ((available.indexOf(lookingat) == -1) && (lookingat != 0)) lookingat = 'false';
+		if ((available.indexOf(lookingat) == -1) && (lookingat != 0)){
+			$articleNav.addClass('false');
+			lookingat = 'false';
+		}
+
 		reading = true;
 		$master.removeClass('wait start').addClass('go read');
 		postload(lookingat);
+
 		trialbind();
 	}
 
@@ -76,7 +103,12 @@ $windowpane.load(function(){
 $windowpane.hashchange(function(){
 	lookingat = parseInt(window.location.hash.split('!')[1]);
 
-	if ((available.indexOf(lookingat) == -1) && (lookingat != '0')) lookingat = 'false';
+	$articleNav.removeClass();
+
+	if ((available.indexOf(lookingat) == -1) && (lookingat != '0')){
+		$articleNav.addClass('false');
+		lookingat = 'false';
+	}
 
 	if (!editing){
 		if (window.location.hash) postload(lookingat);
@@ -120,13 +152,11 @@ function navload(){
 	$theSwitcher.find('.target').on('click', function(){
 		if ($master.hasClass('whiteblack')){
 			$master.removeClass('whiteblack').addClass('blackwhite');
-			document.cookie = 'blackwhite';
+			createCookie('colour', 'blackwhite')
 		}else if ($master.hasClass('blackwhite')){
 			$master.removeClass('blackwhite').addClass('whiteblack');
-			document.cookie = 'whiteblack';
+			createCookie('colour', 'whiteblack')
 		}
-		console.log(document.cookie);
-		console.log('yeah!');
 	})
 }
 
@@ -145,8 +175,7 @@ function start_titleensure(){
 					$theSwitcher.css({ 'top' : (titleheight+189) });
 				}
 			}else{
-				if (!mobileis) $title.css({ 'height' : 0 });
-				else{
+				if (mobileis){ 
 					$left.css('height', '50%');
 					$title.css('height', 0);
 					$right.css({ 'top' : '50%' });
@@ -166,7 +195,10 @@ function start_titleensure(){
 }
 
 function mobileEnsure(){
-	titleheight = $title.find('div').size() * 42;
+	$title.find('div').each(function(){
+		titleheight += $(this).height();
+		console.log(titleheight);
+	})
 
 	$title.on('click', function(){
 		var $that = $(this);
@@ -186,14 +218,13 @@ function mobileEnsure(){
 
 	$title.on('click', 'div', function(e){
 		e.stopPropagation();
-
 	})
 }
 
 function postpointer(){
 	newpost = false;
 	$title.on('click', 'div', function(){
-		window.location.hash = '!'+$(this).data('post');
+		window.location.hash = '!' + $(this).data('post');
 	});
 }
 
@@ -206,6 +237,7 @@ function postload(er){
 	$content.removeClass('ready');
 	
 	$content.find('*').not('#titleedit, #postedit').remove();
+
 	$.ajax({
 		url:'store/html/'+er+'.php',
 		cache:false,
@@ -225,6 +257,9 @@ function postload(er){
 				$theSwitcher.css({ 'top' : 300 });
 				$title.removeClass('open');
 			}
+
+			if (lookingat === 0) $articleNav.addClass('first');
+			if (lookingat === thePosts.postcount) $articleNav.addClass('last');
 		},500);
 	});
 }
@@ -275,7 +310,30 @@ function linkup(tehcode){
 	});
 }
 
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
 
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
 
 
 

@@ -24,7 +24,7 @@ while ($theavailablity = mysql_fetch_array($available, MYSQL_ASSOC)){
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
         
-    <link rel="stylesheet" type="text/css" href="css/master.css" />
+    <link rel="stylesheet" type="text/css" href="css/master.css?v2" />
     <script>
     	<?php 
     		echo 'var available = ['.implode(', ', $nav).'];'
@@ -69,10 +69,18 @@ while ($theavailablity = mysql_fetch_array($available, MYSQL_ASSOC)){
 			<div class="content">
 				<textarea id="postedit"></textarea>
 			</div>
+
+			<div id="articleNav">
+				<div class="articleNavInside">
+					<span id="prev"></span>
+					<span id="next"></span>
+					<span id="back"></span>
+				</div>
+			</div>
 		</div>
 	</div>
 
-<script type="text/javascript" src="js/master-m.js"></script>
+<script type="text/javascript" src="js/master-m.js?v2"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

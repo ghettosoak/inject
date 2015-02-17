@@ -1,6 +1,20 @@
 @import url("//hello.myfonts.net/count/2760f4");
 @import url("//hello.myfonts.net/count/276103");
-  
+
+@mixin transition($what){
+	-webkit-transition: $what;
+	-moz-transition: $what;
+	-o-transition: $what;
+	transition: $what;
+}
+
+@mixin transform($what){
+	-webkit-transform: $what;
+	-moz-transform: $what;
+	-o-transform: $what;
+	transform: $what;
+}
+
 @font-face {
     font-family: 'u39';
     src: url('../type/u39/276103_0_0.eot');
@@ -71,8 +85,15 @@ a{
 
 h1, h2, h3, h4, h5, h6{
 	font-family:u47;
-	font-weight:normal;
+	font-weight:normal; 
+}
+
+h1{
 	line-height: 1em;
+}
+
+h2, h3, h4, h5, h6{
+	line-height: 1.4em;
 }
 
 pre{
@@ -106,7 +127,7 @@ pre{
 	padding-top:189px;
 	#syringe, #name{
 		position:absolute;
-		z-index:300;
+		z-index: 300;
 	}
 	#syringe{
 		width:126px;
@@ -165,7 +186,8 @@ pre{
 				font-family:u67;
 				font-size:15px;
 				font-weight:normal;
-				margin:10px 0px;
+				margin:8px 0px;
+				padding-left:10px;
 				width:80%;
 			}
 		}
@@ -206,38 +228,47 @@ pre{
 #right{
 	right:0px;
 	font-family:$lauftext;
+	overflow-y:scroll;
+	overflow-x:hidden;
+
 	.content{
 		position:relative;
-		height:100%;
-		width: 100%;
-		padding: 63px 15% 100px;
-		overflow-y:scroll;
-		overflow-x:hidden;
-		line-height: 1.5em;
+		width: 600px;
+		margin-left:-300px;
+		left:50%;
+		padding: 63px 0 50px;
+		line-height: 1.65em;
 		opacity:0;
+		min-height: 100%;
+		margin-bottom: -150px;
+
+		&:after{
+			content:'';
+			display: block;
+			height:150px;
+		}
+
 		div{
 			position:relative;
 			float:left;
 			padding-bottom:10px; 
-			width: 143%;
-			margin: 0px -21.5% 41px;
-			padding: 0px 21.25% 15px;
+			width: 400%;
+			margin: 0px -100% 41px;
+			padding: 0px 200% 15px 100%;
 			h1{
 				padding-right:65px;				
 			}
 			h5{
 				position: absolute;
-				right: 15%;
-				bottom: 19px;
+				right: 50%;
+				bottom: 16px;
 			}
 		}
 	}
 	textarea{
 		display:none;
 		position:relative;
-		opacity:0;	
-		overflow-x:hidden;
-		overflow-y:scroll;
+		opacity:0;
 		font-family:liberation, monospace;
 		font-size: 18px;
 		resize: none;
@@ -253,11 +284,123 @@ pre{
 		float: left;
 	}
 	#postedit{
-		margin:auto;
+		margin:0 auto -190px;
 		width:100%;
 		height:100%;
 		padding: 19px 0px 0px 0px;
     	font-size: 15px;
+	}
+
+	#articleNav{
+		position: relative;
+		left:0px;
+		width:100%;
+		opacity:0;
+		display: none;
+
+		&.false {
+			#prev,
+			#next{
+				display:none;
+			}
+			#back{
+				display:block;
+			}
+		}
+		
+		&.first{
+			#prev{ display:none; }
+		}
+
+		&.last{
+			#next{ display:none; }
+		}
+
+		&:before,
+		&:after{
+			content: '';
+			position: absolute;
+			left:50%;
+			top:0px;
+			z-index: 100;
+		}
+
+		&:before{
+			height:30px;
+			width:30px;
+			margin:-15px 0 0 -15px;
+		}
+
+		&:after{
+			height:10px;
+			width:10px;
+			margin:-5px 0 0 -5px;
+			border-radius: 0;
+			@include transform(rotate(45deg));
+		}
+
+		&:hover:after{
+			border-radius: 10px;
+		}
+
+		.articleNavInside{
+			width:600px;
+			height:100px;
+			position: relative;
+			margin: auto;
+			padding-top: 50px;
+			margin-bottom: 50px;
+		}
+
+		#prev, 
+		#next,
+		#back{
+			position: relative;
+			height:50px;
+			width:50px;			
+			background-size:100px 50px;
+			cursor: pointer;
+			display: block;
+
+			&:before,
+			&:after{
+				position: absolute;
+				height:20px;
+				top:15px;
+				font-style:italic;
+			}
+		}
+
+		#prev{
+			float: left;
+			background-position:0px 0px;
+
+			&:after{
+				content:'previous';
+				left:50px;
+			}
+		}
+
+		#next{
+			float: right;
+			background-position: 50px 0px;
+
+			&:before{
+				content:'next';
+				right:50px;
+			}
+		}
+
+		#back{
+			display:none;
+			margin:auto;
+			background-position:0px 0px;
+
+			&:after{
+				content:'back';
+				left:50px;
+			}
+		}
 	}
 }
 
@@ -321,7 +464,6 @@ pre{
 				height:100%;
 				top:0px; 
 				opacity:1;
-				// height:inherit !important;
 			}
 		}
 	}
@@ -330,26 +472,57 @@ pre{
 
 .read{
 	#left{
-		width:33.333333%;
+		width:30%;
+
 		#syringe{
 			top:95px;
-			left:10%;
+			width:15%;
+			left:9%;
 			margin:-63px 0px 0px 0px !important;
 		}
+
 		#name{
 			top:95px;
-			left:75%;	
+			left:80%;
+			opacity:0;
+			z-index:0;
+			@include transform(translateX(20px));
 		}
+
 		#title{
 			margin-top:0px !important;
 			top: 0px;
 			height:100%;
+			opacity:0;
+			@include transform(translateX(20px));
+		}
+
+		&:hover{
+			& ~ #right{ 
+				right:-20%;
+			}
+
+			& ~ #switch{ left:30%; }
+
+			#syringe{
+				width: 126px;
+				left:10%;
+			}
+
+			#name, #title{ 
+				opacity:1;
+				@include transform(translateX(0px));
+			}
 		}
 	}
-	#switch{left:33.333333%;}
+	#switch{left:10%;}
 	#right{
-		width:66.666666%;
+		width:90%;
 		.ready{opacity:1;}
+		.ready ~ #articleNav{
+			opacity: 1;
+			display: block;
+		}
 	}
 }
 
@@ -411,6 +584,21 @@ pre{
 			background-color:white;
 			color:$dark;
 		}
+
+		.articleNavInside{
+			border-top: 1px white dashed;
+		}
+
+		#articleNav{
+			&:before{ background-color: $dark; }
+			&:after{ background-color: white; }
+
+			#prev, #next, #back{ 
+				background-image:url(../img/arrows_light.png); 
+				&:before, &:after{ color:white; }
+			}
+		}
+
 	}
 
 	&.wait #title{color:white;}
@@ -503,6 +691,21 @@ pre{
 			background-color:lighten($dark, 7.5%);
 			color:white;
 		}
+
+		.articleNavInside{
+			border-top: 1px $dark dashed;
+		}
+
+		#articleNav{
+			&:before{ background-color: white; }
+			&:after{ background-color: $dark; }
+
+			#prev, #next, #back{ 
+				background-image:url(../img/arrows_dark.png); 
+				&:before, &:after{ color:$dark; }
+			}
+		}
+
 	}
 
 	&.wait #title{color:$dark;}
@@ -543,7 +746,10 @@ pre{
 	.edit{display:block !important;}
 
 	#right{
-		.content{padding:190px 15% 0px;}
+		.content{
+			padding:190px 0 0px;
+			height:100%;
+		}
 		.edit{
 			#trial, .control{
 				width:100%;
@@ -596,7 +802,9 @@ pre{
 				.really p{ opacity:1; }
 			}
 		}
-		
+		#articleNav{
+			display:none !important;
+		}
 	}
 }
 
@@ -608,20 +816,36 @@ pre{
 }
 
 
-@media only screen and (max-width: 880px) /*IPAD*/ {
-	#left #title div{
-		span{ width:30%; }
-		h2{ width:70%; }
-	}
+@media only screen and (max-width: 725px) /*IPAD*/ {
+	.read #left{
+		width:50%;
+
+		#syringe{
+			width:14%;
+			left:3%;
+		}
+
+		#title div{
+			span{ width:30%; }
+			h2{ width:70%; }
+		}
+
+		&:hover{
+			& ~ #right{ 
+				right:-40%;
+			}
+
+			& ~ #switch{ left:50%; }
+		}
+	} 
 	#right{
-		.content{ padding:63px 20px 0px; }
+		.content{ 
+			width:400px;
+			margin-left:-200px;
+		}
 		#trial, .control{padding:0px 20px !important;}
 		#titleedit{width:32%;}
-	}
-	.read #left #syringe{
-		height:80px;
-		width:80px;
-		margin:-40px 0px 0px 0px !important;
+		#articleNav .articleNavInside{ width:400px; }
 	}
 }
 
@@ -669,10 +893,16 @@ pre{
 				margin:0px 0px 0px -40px !important;
 			}
 			#syringe{ top:20px; }
-			#name{ top:100px; }
+			#name{ 
+				@include transform(translateX(0));
+				top:100px; 
+				opacity:1;
+			}
 			#title{
 				top:215px !important;
 				padding-top:70px;
+				@include transform(translateX(0));
+				opacity:1;
 
 				&:before, &:after{
 					display:block;
@@ -699,7 +929,6 @@ pre{
 
 				div{
 					display:none;
-					height:42px;
 				}
 
 				&.open{
@@ -709,14 +938,35 @@ pre{
 					div{ display:block; }
 				}
 			}
+
+			&:hover{
+				& ~ #right{ 
+					width:100%; 
+					right:0%;
+				}
+			}
 		}
 		#switch{ top:300px; }
 		#right{
-			height:initial;
+			height:auto;
 			top:300px;
+			overflow-y:visible;
 			.content{
-				padding:22px 20px;
+				position: relative;
+				right:0;
+				left:0;
+				margin:0;
+				width:100%;
+				padding:22px 20px 50px;
 				min-height:500px;
+
+				// div h5{
+				// 	bottom:16px;
+				// }
+			}
+			#articleNav{
+				padding:0 20px;
+				.articleNavInside{ width:100%; }
 			}
 		}
 	}
